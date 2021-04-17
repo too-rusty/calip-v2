@@ -4,6 +4,7 @@ import (
 	"calipv2/cc_service/dtos"
 	"calipv2/schema"
 	"encoding/json"
+	"fmt"
 	"strconv"
 )
 
@@ -37,17 +38,18 @@ func getUserData() (users []schema.User, err error) {
 	return
 }
 
-func getCcData() (ccs []schema.Cc, err error) {
-
+func getCcData() (ccs_ret []schema.Cc, err error) {
+	fmt.Println("lens", len(cards), len(ccs))
 	for i := 0; i < len(ccs); i++ {
-		var cardsBytes, tags []byte
+		var cardsBytes, tag_byte []byte
 		cardsBytes, err = json.Marshal(cards[i])
-		tags, err = json.Marshal(tags[i])
+		tag_byte, err = json.Marshal(tags[i])
 		if err != nil {
 			return
 		}
 		ccs[i].Content = string(cardsBytes)
-		ccs[i].Tags = string(tags)
+		ccs[i].Tags = string(tag_byte)
+		ccs_ret = append(ccs_ret, ccs[i])
 	}
 
 	return

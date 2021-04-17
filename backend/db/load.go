@@ -54,6 +54,7 @@ func Load() {
 	}
 
 	//load the bookmarks in the db
+	//load the tags in the db
 
 }
 

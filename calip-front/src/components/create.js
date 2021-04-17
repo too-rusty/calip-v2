@@ -1,7 +1,9 @@
 import React from "react";
 import { Redirect } from "react-router";
 import axios from 'axios'
-import ReactPlayer from 'react-player'
+import ReactPlayer from 'react-player';
+
+import './create.css'
 
 
 let marked = require("marked");
@@ -10,14 +12,14 @@ let marked = require("marked");
 
 var inputStyle = {
 width: "400px",
-height: "50vh",
+height: "500px",
 marginLeft: "auto",
 marginRight: "auto",
 padding: "10px",
 };
 var outputStyle = {
 width: "400px",
-height: "50vh",
+height: "500px",
 backgroundColor: "#DCDCDC",
 marginLeft: "auto",
 marginRight: "auto",
@@ -227,9 +229,9 @@ class Create extends React.Component {
 
     render() {
         // if logout then redirect
-        if (this.props.token === "null") {
+        /*if (this.props.token === "null") {
             return <Redirect to={'/login'} />
-        }
+        }*/
 
         let cards = this.state.cards.map((val,key)=> {
             return (<MyCard 
@@ -251,12 +253,17 @@ class Create extends React.Component {
         let cidx = this.state.currentCardIdx
 
         return (
-            <div>
-            <div><button onClick={this.addCard.bind(this)}>add card</button></div>
-            <div><button onClick={this.addVidCard.bind(this)}>add vid card</button></div>
-            <div><button onClick={this.saveChain.bind(this)}>save draft</button></div>
-            <div><button onClick={this.publishChain.bind(this)}>publish</button></div>
-            <div>
+        
+            <div className="create-card" >
+                <div className="buttons">
+                <button onClick={this.addCard.bind(this)}>add card</button>
+                <div><button onClick={this.addVidCard.bind(this)}>add vid card</button></div>
+                <div><button onClick={this.saveChain.bind(this)}>save draft</button></div>
+                <div><button onClick={this.publishChain.bind(this)}>publish</button></div>
+                </div>
+                
+                <div className="information">
+                <div>
                 <label>Title</label>
                 <input name="title" type="text" placeholder="Title"
                 onChange = { this.changeHandler.bind(this) } />
@@ -284,9 +291,14 @@ class Create extends React.Component {
                  </div>
                 : <div> NO PREVIEW </div>
              }
-            </div>
+            </div> </div>
+               
+            
+            
+    
         );
-    }
+            }
+        
 }
 
 

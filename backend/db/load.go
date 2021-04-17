@@ -53,6 +53,8 @@ func Load() {
 		console.Pretty(cc)
 	}
 
+	//load the bookmarks in the db
+
 }
 
 func Connect() (*gorm.DB, error) {

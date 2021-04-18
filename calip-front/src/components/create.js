@@ -229,9 +229,9 @@ class Create extends React.Component {
 
     render() {
         // if logout then redirect
-        // if (this.props.token === "null") {
-        //     return <Redirect to={'/login'} />
-        // }
+        if (this.props.token === "null") {
+            return <Redirect to={'/login'} />
+        }
 
         let cards = this.state.cards.map((val,key)=> {
             return (<MyCard 

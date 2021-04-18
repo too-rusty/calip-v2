@@ -60,7 +60,7 @@ func Load() {
 
 func Connect() (*gorm.DB, error) {
 	db, err := gorm.Open("mysql",
-		"root:@tcp(127.0.0.1:3306)/calip-v2?parseTime=true")
+		"root:@tcp(127.0.0.1:3306)/calip_v2?parseTime=true")
 	if err != nil {
 		return nil, err
 	}

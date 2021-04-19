@@ -14,7 +14,7 @@ import (
 
 func SearchByTagname(w http.ResponseWriter, r *http.Request) {
 	// IF USER ALREADY LOGGED IN , then set login
-	tokk := r.Header.Get("Token")
+	tokk := r.Header.Get("Token") // need to correct this , although not needed
 	var uname string
 	if tokk != "" {
 		maker, err := token.NewPasetoMaker("abcd1234abcd1234abcd1234abcd1234")

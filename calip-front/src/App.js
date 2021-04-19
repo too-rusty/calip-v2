@@ -146,7 +146,8 @@ class App extends React.Component {
               <Route exact path="/create" component={() => <Create token = {this.state.token} setToken = {this.setToken.bind(this)} />} />
               <Route exact path="/cc/:ccid/edit" component={EditView} />
               <Route exact path="/cc/:ccid" component={Cchain} />
-              <Route exact path="/cc" component={() => <CchainSearch token = {this.state.token} />} />
+              <Route exact path="/cc" component={CchainSearch} />
+              <Redirect from="/reloadcc" to="/cc" />
               {/* <Route exact path="/profile" component={() => <Profile token = {this.state.token} />} /> */}
               <Route exact path="/profile/:uname" component={Profile} />
               <Redirect from="/profile/:uname/reload" to="/profile/:uname" />

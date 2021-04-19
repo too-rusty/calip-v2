@@ -15,7 +15,7 @@ func Paginate(r *http.Request) func(db *gorm.DB) *gorm.DB {
 		if len(m["page"]) > 0 {
 			page, err = strconv.Atoi(m["page"][0])
 		}
-
+		//page == 0 means that no page was sent in the url , so take it as 1
 		if page == 0 || err != nil {
 			page = 1
 		}

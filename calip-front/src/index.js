@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 // import { useBeforeunload } from 'react-beforeunload'
 // import { Beforeunload } from 'react-beforeunload';;

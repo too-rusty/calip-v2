@@ -11,6 +11,7 @@ import Cchain from './components/cchain'
 import Profile from './components/profile'
 import CchainSearch from './components/cchainsearch'
 import EditView from './components/editchain'
+import Footer from './components/footer.jsx'
 
 import axios from 'axios'
 import './index.css'
@@ -152,6 +153,7 @@ class App extends React.Component {
               <Route exact path="/profile/:uname" component={Profile} />
               <Redirect from="/profile/:uname/reload" to="/profile/:uname" />
             </Switch>
+            <Footer/>
           </div>
         </div>
       </div>

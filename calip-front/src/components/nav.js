@@ -1,7 +1,10 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import Cookies from 'universal-cookie';
+import * as ReactBootstrap from 'react-bootstrap';
+import logo from '../images/logo.png'
 
+import './nav.css'
 const cookies = new Cookies();
 
 
@@ -64,7 +67,7 @@ class Nav extends React.Component {
         }
 
         return (
-            <div className = "App">
+            /*<div className = "App">
                 <nav className="navbar navbar-expand navbar-light fixed-top">
                 <div className="container">
                     <Link className="navbar-brand" to={'/'}>Home</Link>
@@ -72,7 +75,22 @@ class Nav extends React.Component {
                     {buttons}
                 </div>
                 </nav>
-            </div>
+            </div>*/
+            <ReactBootstrap.Navbar className="navbar" bg="dark" expand="lg">
+            <ReactBootstrap.Navbar.Brand href="#home"><img className="logo" src={logo} alt="calip"/></ReactBootstrap.Navbar.Brand>
+            <ReactBootstrap.Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <ReactBootstrap.Navbar.Collapse id="basic-navbar-nav">
+              <ReactBootstrap.Nav className="mr-auto">
+                
+                <Link className="navbar-brand" to={'/'}>Home</Link>
+                <Link className="navbar-brand" to={'/create'}>Create</Link>
+                <Link className="navbar-brand" to={'/categories'}>Categories</Link>
+              </ReactBootstrap.Nav>
+              <ReactBootstrap.Form inline>
+                {buttons}
+              </ReactBootstrap.Form>
+            </ReactBootstrap.Navbar.Collapse>
+          </ReactBootstrap.Navbar>
         )
     }
   }

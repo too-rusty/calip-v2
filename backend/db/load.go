@@ -3,6 +3,7 @@ package db
 import (
 	"calipv2/schema"
 	"calipv2/utils/console"
+	"encoding/json"
 	"log"
 
 	_ "github.com/go-sql-driver/mysql"
@@ -50,6 +51,20 @@ func Load() {
 		if err != nil {
 			log.Fatal(err)
 		}
+		//POPULATE tags too
+		var tags []string
+		_ = json.Unmarshal([]byte(cc.Tags), &tags)
+		for _, tag := range tags {
+			toPush := schema.Tag{
+				Tag:  tag,
+				Ccid: cc.ID,
+			}
+			err = db.Model(&schema.Tag{}).Create(&toPush).Error
+			if err != nil {
+				log.Println("COULD not PUSH", toPush, " err ", err)
+			}
+		}
+		//-------
 		console.Pretty(cc)
 	}
 

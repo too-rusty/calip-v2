@@ -5,6 +5,8 @@ import {Link} from "react-router-dom";
 import { Redirect } from "react-router";
 import queryString from 'query-string'
 
+import './cchainsearch.css'
+
 // const queryString = require('query-string');
 // const PAGE_SZ = 1
 
@@ -128,10 +130,10 @@ class CchainSearch extends React.Component {
         let search_bar = (
             <div>
                 <label></label>
-                <input name="search_str" type="text" placeholder="search by tag"
+                <input className="search-bar" name="search_str" type="text" placeholder="search by tag"
                 onChange = { this.changeHandler.bind(this) } />
 
-                <Link onClick={this.search.bind(this)}
+                <Link className="search-button" onClick={this.search.bind(this)}
                     to={`/cc?tag=${this.state.search_str===null?this.state.prev_tag:this.state.search_str}`}>
                     <button type='submit' className={'button mt-20'}> search </button>
                 </Link>
@@ -156,27 +158,45 @@ class CchainSearch extends React.Component {
         if(this.state.summary===null) {
         }else {
             allcards = this.state.summary.map((val, key)=> {
-                return (<Card 
-                key={key}
-                ccid={val.ccid}
-                title={val.title}
-                about={val.about}
-                tags={val.tags}
-                username={val.username}
-                />);
+                return (
+                    <div className="box-sc">
+                        <div className="card-sc">
+                            <div className="content">
+                            <Card 
+                
+                            key={key}
+                            ccid={val.ccid}
+                            title={val.title}
+                            about={val.about}
+                            tags={val.tags}
+                            username={val.username}
+                            />
+                            </div>
+                      
+                        </div>
+                       
+                    </div>
+                );
             }
             )
         }
 
 
         return (
-            <div>
+            <div >
+                <div className="hero">
+                <div>{search_bar}</div>
+           
             
-            <div>{search_bar}</div>
-            <div>{show_all_button}</div>
+           <div>{this.state.search_tag!==null?<div> {this.state.search_tag}</div> : <div></div>}</div>
+           <div className="allcards">
+               
+               
+               {allcards}</div>
+           <div>{show_all_button}</div>
+                </div>
             
-            <div>{this.state.search_tag!==null?<div>Tag : {this.state.search_tag}</div> : <div></div>}</div>
-            <div>{allcards}</div>
+           
 
             </div>
         
@@ -216,10 +236,13 @@ class Card extends React.Component {
         let title = this.props.title
         let about = this.props.about
         let tags = this.props.tags.map((val,key)=>{
-            return (<Tag 
+            return (<div className="tags">
+                <Tag 
                 val={val}
                 key={key}
                 />
+            </div>
+                
             )
         })
 
@@ -236,13 +259,15 @@ class Card extends React.Component {
 
         let view = (
             <div>
-            <div>ccid : {ccid}</div>
-            <div><Link to={"/cc/"+ccid.toString()}>About</Link></div>
-            <div>title : {title}</div>
-            <div>about : {about}</div>
-            <div>tags : {tags}</div> { /* use TAG group here maybe */}
-            <div>by : {by_user}</div>
-            <div>---------------------</div>
+            
+           
+            <div className="sc-heading">{title}</div>
+            <div className="user">--{" "}{by_user}</div>
+            <div className="sc-about">{about}</div>
+            <div className="sc-tags"> {tags}</div> { /* use TAG group here maybe */}
+            
+            <div><Link to={"/cc/"+ccid.toString()}><button>View</button>
+           </Link></div>
             </div>
         )
 
@@ -260,7 +285,7 @@ class Tag extends React.Component {
     render() {
         let tag = this.props.val
         return (
-        <div>{tag}</div> // better if this is in a small box or something
+        <div className="searched-tag">{tag}</div> // better if this is in a small box or something
         )
     }
 }

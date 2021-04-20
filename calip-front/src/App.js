@@ -17,32 +17,6 @@ import axios from 'axios'
 import './index.css'
 import Cookies from 'universal-cookie';
 
-// const App = () => (
-
-//     <Router>
-//       <div className="navbarContainer">
-//       <NavLink to="/" exact activeStyle={{color:'green', borderBottom: 'solid 3px #fff'}}>Home </NavLink>
-//       <NavLink to="/store" exact activeStyle={{color:'green', borderBottom: 'solid 3px #fff'}}> Store</NavLink>
-//       <NavLink to="/signup" exact activeStyle={{color:'green', borderBottom: 'solid 3px #fff'}}> Signup</NavLink>
-//       <div>
-//         {false ? <NavLink to="/status" exact activeStyle={{color:'green', borderBottom: 'solid 3px #fff'}}> Status</NavLink>
-//                 : <NavLink to="/status" exact activeStyle={{color:'green', borderBottom: 'solid 3px #fff'}}> Status2</NavLink> }
-//       </div>
-
-//       </div>
-//       <Route path = "/" exact component = {Home} />
-//       <Route path = "/store" exact component = {Home} />
-//       <Route path = "/status" exact component = {Home} />
-//       <Route path = "/signup" exact component = {Home} />
-//     </Router>
-
-//   // <div>
-//   //   <div> YOYOYO </div>
-//   //   <Form1 />
-//   // </div>
-
-// )
-
 
 
 // I had to use credentials: 'include' on the client side and CORS_ALLOW_CREDENTIALS = True 
@@ -56,11 +30,6 @@ const cookies = new Cookies();
 class App extends React.Component {
   constructor(props) {
     super(props)
-    // if (cookies.get('calip_token') === "null") {
-    //   cookies.set('calip_token', null, { path: '/' })
-    // }
-    
-    // let loggedin = ls.get('token') === '' || ls.get('token') === undefined || ls.get('token') === null ? false : true;
     console.log('fetching in appp component')
     let tokk = cookies.get('calip_token')
     let uname = cookies.get('calip_uname')
@@ -71,10 +40,6 @@ class App extends React.Component {
       uname : uname
     }
     console.log("maine app state",this.state)
-    // const cookies = new Cookies();
-// cookies.set('myCato', 'Pacman2', { path: '/login' });
-// console.log('COKKE',cookies.get('myCatok')); // Pacman
-
     
   }
 

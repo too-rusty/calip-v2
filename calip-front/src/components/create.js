@@ -1,47 +1,14 @@
 import React from "react";
 import { Redirect } from "react-router";
 import axios from 'axios'
-import ReactPlayer from 'react-player';
+import EditCard from './subComponents/editcard';
+import MyCard from './subComponents/mycard';
 
 import './create.css'
 
-
 let marked = require("marked");
 
-
-
-var inputStyle = {
-width: "400px",
-height: "500px",
-marginLeft: "auto",
-marginRight: "auto",
-padding: "10px",
-};
-var outputStyle = {
-width: "400px",
-height: "500px",
-backgroundColor: "#DCDCDC",
-marginLeft: "auto",
-marginRight: "auto",
-padding: "10px",
-};
-
 class Create extends React.Component {
-    
-    // render() {
-    //     console.log(this.props.user)
-    //     if (this.props.user !== null) {
-    //         return (
-    //             <div> you are in, create now! </div>
-    //         )
-    //     } else {
-    //         // return <Redirect to={'/'} />
-    //         return (
-    //             <div>Create</div>
-    //         )
-    //     }
-    // }
-
 // save this template at regular intervals to save to db
 // fetch the ccid when this happens for the first time
 
@@ -201,10 +168,6 @@ class Create extends React.Component {
                 if(res.data.ccid != undefined) {
                     this.setState({ccid:res.data.ccid})
                 }
-                // console.log("USERNAMEEEE",res.data) // only token is being returned
-                // // localStorage.setItem('token',res.data.token)
-                // ls.set('token',res.data.token)
-                // this.props.setUser(res.data.token,true)
             }
         ).catch(
             error => {
@@ -292,101 +255,9 @@ class Create extends React.Component {
                 : <div> NO PREVIEW </div>
              }
             </div> </div>
-               
-            
-            
-    
         );
             }
         
 }
-
-
-class EditCard extends React.Component {
-    constructor(props){
-        super(props)
-    }
-    updateMarkdown(link,content) {
-        // this.setState({ content });
-        let isVidCard = this.props.card.link === undefined ? false : true
-        if (!isVidCard)this.props.editCard(content)
-        else this.props.editVidCard(link,content)
-    }
-
-    componentWillMount(){
-    }
-    render(){
-        // this.props.card is always non null
-        let markdown = this.props.card.content
-        let isVidCard = this.props.card.link===undefined ? false : true
-        let link = this.props.card.link
-        return (
-        <div>
-
-            {isVidCard ? 
-            <div>
-            <textarea value={link} onChange={ (e)=>{this.updateMarkdown(e.target.value,null)} } />
-            </div>
-            :<div></div>
-            }
-
-            <div className="input" style={inputStyle}>
-                <textarea
-                className="input"
-                style={inputStyle}
-                value={markdown}
-                onChange={(e) => {
-                    this.updateMarkdown(null,e.target.value);
-                }}
-                >
-                </textarea>
-            </div>
-
-                {/*OUTPUT PREVIEW*/}
-
-            <div
-            style={outputStyle}
-            dangerouslySetInnerHTML={{
-                __html: marked(markdown),
-            }}
-            ></div>
-            {isVidCard?
-            <div><ReactPlayer url={link} controls={true} /></div>
-            :<div></div>}
-        </div>
-        )
-    }
-    // render() {
-    //     return (<div>edit card here</div>)
-    // }
-}
-
-
-class MyCard extends React.Component{
-    //actually contain the buttons
-    constructor(props){
-      super(props)
-    }
-    render(){
-        let content = this.props.content
-        if(!content)content='EMPTY'
-        let idx = this.props.idx
-        let isVidCard=this.props.link===undefined?false:true
-        return (
-            <div>
-                <div
-                dangerouslySetInnerHTML={{
-                    __html: marked(content.substr(0,5)+'...'),
-                }}
-                ></div>
-                <div>{isVidCard?<div>YES</div>:<div>NO</div>}</div>
-                <div><button onClick={this.props.deleteCard}>delete</button></div>
-                <div><button onClick={()=>this.props.stardEdit(idx)}>edit</button></div>
-                {/* <div><button onClick={()=>this.props.save(idx)}>save</button></div> */}
-            </div>
-        )
-    }
-}
-
 
 export default Create

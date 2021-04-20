@@ -1,8 +1,8 @@
 import React from "react";
 import axios from 'axios';
 import Cookies from 'universal-cookie';
-import ReactPlayer from 'react-player'
-import { Redirect } from "react-router";
+import EditCard from './subComponents/editcard';
+import MyCard from './subComponents/mycard';
 // import CChainView from "./cchainView"
 
 let marked = require("marked");
@@ -324,92 +324,91 @@ class EditView extends React.Component {
 }
 
 
-class EditCard extends React.Component {
-    constructor(props){
-        super(props)
-        console.log("looooooooooo",this.props.card)
-    }
-    updateMarkdown(link,content) {
-        // this.setState({ content });
-        let isVidCard = this.props.card.link === undefined || this.props.link === "" ? false : true
-        if (!isVidCard)this.props.editCard(content)
-        else this.props.editVidCard(link,content)
-    }
+// class EditCard extends React.Component {
+//     constructor(props){
+//         super(props)
+//     }
+//     updateMarkdown(link,content) {
+//         // this.setState({ content });
+//         let isVidCard = this.props.card.link === undefined || this.props.link === "" ? false : true
+//         if (!isVidCard)this.props.editCard(content)
+//         else this.props.editVidCard(link,content)
+//     }
 
-    componentWillMount(){
-    }
-    render(){
-        // this.props.card is always non null
-        let markdown = this.props.card.content
-        let isVidCard = this.props.card.link===undefined || this.props.card.link===""? false : true
-        let link = this.props.card.link
-        return (
-        <div>
+//     componentWillMount(){
+//     }
+//     render(){
+//         // this.props.card is always non null
+//         let markdown = this.props.card.content
+//         let isVidCard = this.props.card.link===undefined || this.props.card.link===""? false : true
+//         let link = this.props.card.link
+//         return (
+//         <div>
 
-            {isVidCard ? 
-            <div>
-            <textarea value={link} onChange={ (e)=>{this.updateMarkdown(e.target.value,"")} } />
-            </div>
-            :<div></div>
-            }
+//             {isVidCard ? 
+//             <div>
+//             <textarea value={link} onChange={ (e)=>{this.updateMarkdown(e.target.value,"")} } />
+//             </div>
+//             :<div></div>
+//             }
 
-            <div className="input" style={inputStyle}>
-                <textarea
-                className="input"
-                style={inputStyle}
-                value={markdown}
-                onChange={(e) => {
-                    this.updateMarkdown(null,e.target.value);
-                }}
-                >
-                </textarea>
-            </div>
+//             <div className="input" style={inputStyle}>
+//                 <textarea
+//                 className="input"
+//                 style={inputStyle}
+//                 value={markdown}
+//                 onChange={(e) => {
+//                     this.updateMarkdown(null,e.target.value);
+//                 }}
+//                 >
+//                 </textarea>
+//             </div>
 
-                {/*OUTPUT PREVIEW*/}
+//                 {/*OUTPUT PREVIEW*/}
 
-            <div
-            style={outputStyle}
-            dangerouslySetInnerHTML={{
-                __html: marked(markdown),
-            }}
-            ></div>
-            {isVidCard?
-            <div><ReactPlayer url={link} controls={true} /></div>
-            :<div></div>}
-        </div>
-        )
-    }
-    // render() {
-    //     return (<div>edit card here</div>)
-    // }
-}
+//             <div
+//             style={outputStyle}
+//             dangerouslySetInnerHTML={{
+//                 __html: marked(markdown),
+//             }}
+//             ></div>
+//             {isVidCard?
+//             <div><ReactPlayer url={link} controls={true} /></div>
+//             :<div></div>}
+//         </div>
+//         )
+//     }
+//     // render() {
+//     //     return (<div>edit card here</div>)
+//     // }
+// }
 
 
-class MyCard extends React.Component{
-    //actually contain the buttons
-    constructor(props){
-      super(props)
-    }
-    render(){
-        let content = this.props.content
-        if(!content)content='EMPTY'
-        let idx = this.props.idx
-        let isVidCard=this.props.link===undefined || this.props.link===""?false:true
-        return (
-            <div>
-                <div
-                dangerouslySetInnerHTML={{
-                    __html: marked(content.substr(0,5)+'...'),
-                }}
-                ></div>
-                <div>{isVidCard?<div>YES</div>:<div>NO</div>}</div>
-                <div><button onClick={this.props.deleteCard}>delete</button></div>
-                <div><button onClick={()=>this.props.stardEdit(idx)}>edit</button></div>
-                {/* <div><button onClick={()=>this.props.save(idx)}>save</button></div> */}
-            </div>
-        )
-    }
-}
+// class MyCard extends React.Component{
+//     //actually contain the buttons
+//     constructor(props){
+//       super(props)
+//     }
+//     render(){
+//         let content = this.props.content
+//         if(!content)content='EMPTY'
+//         let idx = this.props.idx
+//         let isVidCard=this.props.link===undefined || this.props.link===""?false:true
+//         return (
+//             <div>
+//                 <div
+//                 dangerouslySetInnerHTML={{
+//                     __html: marked(content.substr(0,5)+'...'),
+//                 }}
+//                 ></div>
+//                 <div>{isVidCard?<div>YES</div>:<div>NO</div>}</div>
+//                 <div><button onClick={this.props.deleteCard}>delete</button></div>
+//                 <div><button onClick={()=>this.props.stardEdit(idx)}>edit</button></div>
+//                 {/* <div><button onClick={()=>this.props.save(idx)}>save</button></div> */}
+//             </div>
+//         )
+//     }
+// }
 
 
 export default EditView

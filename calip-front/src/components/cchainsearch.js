@@ -143,7 +143,7 @@ class CchainSearch extends React.Component {
         let show_all_button = (
             <div>
                 <Link onClick={this.search.bind(this)}
-                    to={`/reloadcc?page=2`}>
+                    to={`/reloadcc`}>
                     <button onClick={this.showAll.bind(this)}>show all</button>
                 </Link>
                 

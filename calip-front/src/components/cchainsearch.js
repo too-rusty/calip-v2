@@ -193,9 +193,9 @@ observation - link doesn't render the new component
 componentDidUpdate is called everytime component gets updated
 
 search_str is the current search str
-after search button is clicked, we link to the same component
+after search button is clicked, we `Link` to the same component
 
-update the search_tag in the search func ( on click search )
+update the search_tag in the search func ( on searchbutton click )
 
 componentDidupdate, check if the search_tag is different than the prev_tag
 update the prev and recall the api
@@ -215,8 +215,24 @@ class Card extends React.Component {
         let ccid = this.props.ccid
         let title = this.props.title
         let about = this.props.about
-        let tags = this.props.tags.join()
+        let tags = this.props.tags.map((val,key)=>{
+            return (<Tag 
+                val={val}
+                key={key}
+                />
+            )
+        })
+
+        let tag_group_component = <TagGroupComponent tag_array={this.props.tag}/>
+        // MOSTLY USE THE ABOVE
+
         let username = this.props.username
+
+        let by_user = (
+        <Link to={`/profile/${username}`}>
+            {username}
+        </Link>
+        )
 
         let view = (
             <div>
@@ -224,8 +240,8 @@ class Card extends React.Component {
             <div><Link to={"/cc/"+ccid.toString()}>About</Link></div>
             <div>title : {title}</div>
             <div>about : {about}</div>
-            <div>tags : {tags}</div>
-            <div>by : {username}</div>
+            <div>tags : {tags}</div> { /* use TAG group here maybe */}
+            <div>by : {by_user}</div>
             <div>---------------------</div>
             </div>
         )
@@ -235,7 +251,33 @@ class Card extends React.Component {
         )
 
     }
+}
 
+class Tag extends React.Component {
+    constructor(props) {
+        super(props)
+    }
+    render() {
+        let tag = this.props.val
+        return (
+        <div>{tag}</div> // better if this is in a small box or something
+        )
+    }
+}
+
+class TagGroupComponent extends React.Component {
+    //group all the tags in a div and then inside this component,
+    // now we have the aray of tags
+    // put them in a Tag component
+    // and then group them togehter somehow side to side ....
+    constructor(props) {
+        super(props)
+    }
+    render () {
+        return (
+        <div></div>
+        )
+    }
 }
 
 export default CchainSearch

@@ -31,7 +31,7 @@ class Home extends React.Component {
 
         return (
             <div className="home">
-                <div className="hero">
+                <div className="hero1">
                 <ReactBootstrap.Container className="container"> 
                 <ReactBootstrap.Row>
                     <ReactBootstrap.Col><div className="section text">

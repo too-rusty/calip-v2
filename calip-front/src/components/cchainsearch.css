@@ -4,7 +4,7 @@
    
     
     flex-direction: column;
-    height: 100vh;
+    min-height: 1200px;
     width: 1500px;
     
 }
@@ -13,9 +13,10 @@
     display: grid;
     justify-content: center;
     align-items:center;
-    padding: 50px;
+    padding: 50px  !important;
     grid-template-columns: auto auto auto auto;
-    width: 100%
+    width: 100%;
+    /*min-height: 100vh;*/
 }
 
 .box-sc{

@@ -188,12 +188,12 @@ class CchainSearch extends React.Component {
                 <div>{search_bar}</div>
            
             
-           <div>{this.state.search_tag!==null?<div> {this.state.search_tag}</div> : <div></div>}</div>
-           <div className="allcards">
+                <div>{this.state.search_tag!==null?<div> {this.state.search_tag}</div> : <div></div>}</div>
+                <div className="allcards">
                
                
                {allcards}</div>
-           <div>{show_all_button}</div>
+                <div>{show_all_button}</div>
                 </div>
             
            

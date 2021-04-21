@@ -5,9 +5,12 @@
 
 body {
     min-height: 100vh;
-    height: 1000px;
+    
     display: flex;
     font-weight: 400;
+    background-color: #0c0910;
+    justify-content: center;
+    
 
 }
 
@@ -37,3 +40,15 @@ body, html, .App, #root, .auth-wrapper {
     line-height: 1;
    
 }*/
+
+.auth-inner {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    
+    align-items: center;
+   
+    min-width: 100vw;
+    min-height: 100vh;
+    padding: 50px;
+}

@@ -118,8 +118,9 @@ class App extends React.Component {
               <Route exact path="/profile/:uname" component={Profile} />
               <Redirect from="/profile/:uname/reload" to="/profile/:uname" />
             </Switch>
-            <Footer/>
+           
           </div>
+          <Footer/>
         </div>
       </div>
         

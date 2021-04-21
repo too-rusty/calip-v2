@@ -7,6 +7,7 @@ nav{
     padding: 25px 100px;
     background-color:#0C0910 !important;
     font-size: 25px;
+    width: 100vw;
 
 }
 .logo{
@@ -24,7 +25,7 @@ nav{
     color: #0C1D1C !important;
     transition: all 0.2s;
     box-shadow: 0 0 20px #fff;
-    font-size: 25px;
+    font-size: 20px;
     border-radius: 5px;
 }
 
@@ -34,6 +35,7 @@ nav{
     padding: 0px 10px;
     border-radius: 30px;
     box-shadow: 0 0 5px #fbf5f3;
+    font-size: 20px;
     
 }
 .nav-link{
@@ -45,7 +47,7 @@ nav{
     
     transition: all 0.2s;
     box-shadow: 0 0 20px #fff;
-    font-size: 25px;
+    font-size: 22px;
     border-radius: 30px;
 }
 .nav-link:hover{

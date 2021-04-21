@@ -2,7 +2,7 @@
     font-family: 'Poppins', sans-serif;
  
 }
-.hero{
+.hero1{
     background-color: #0C0910;
     padding: 20px;
     color: #fbf5f3;
@@ -48,10 +48,12 @@
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    min-width: 1350px !important;
+}
     
 
 
-}
+
 .boxes{
     display: flex;
     flex-direction: row;

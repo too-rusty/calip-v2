@@ -16,6 +16,7 @@ import Footer from './components/footer.jsx'
 import axios from 'axios'
 import './index.css'
 import Cookies from 'universal-cookie';
+import Categories from './components/categories';
 
 
 
@@ -113,6 +114,7 @@ class App extends React.Component {
               <Route exact path="/cc/:ccid/edit" component={EditView} />
               <Route exact path="/cc/:ccid" component={Cchain} />
               <Route exact path="/cc" component={CchainSearch} />
+              <Route exact path="/categories" component={Categories} />
               <Redirect from="/reloadcc" to="/cc" />
               {/* <Route exact path="/profile" component={() => <Profile token = {this.state.token} />} /> */}
               <Route exact path="/profile/:uname" component={Profile} />

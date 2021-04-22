@@ -13,7 +13,7 @@ type User struct {
 	Password   string `json:"password"`
 	Email      string `json:"email"`
 	Name       string `json:"name"`
-	About      string `json:"about"`
+	About      string `json:"about" gorm:"type:text"`
 	Profilepic string `json:"profilepic"`
 }
 

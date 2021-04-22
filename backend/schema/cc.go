@@ -4,9 +4,9 @@ import "github.com/jinzhu/gorm"
 
 type Cc struct {
 	gorm.Model
-	Title    string
-	About    string
-	Content  string
+	Title    string `gorm:"type:text"`
+	About    string `gorm:"type:text"`
+	Content  string `gorm:"type:text"`
 	Tags     string
 	Username string `sql:"index"`
 	Draft    bool

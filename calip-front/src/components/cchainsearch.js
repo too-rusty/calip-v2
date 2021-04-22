@@ -259,15 +259,22 @@ class Card extends React.Component {
 
         let view = (
             <div>
+                <div className="main-heading">
+                    <div className="sc-heading">{title}</div>
+            
+                    <div className="user">--{" "}{by_user}</div>
+                </div>
             
            
-            <div className="sc-heading">{title}</div>
-            <div className="user">--{" "}{by_user}</div>
+           
             <div className="sc-about">{about}</div>
+            <div className="last-row">
             <div className="sc-tags"> {tags}</div> { /* use TAG group here maybe */}
             
-            <div><Link to={"/cc/"+ccid.toString()}><button>View</button>
+            <div><Link to={"/cc/"+ccid.toString()}><button className="view-button">View</button>
            </Link></div>
+            </div>
+           
             </div>
         )
 

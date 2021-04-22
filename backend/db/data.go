@@ -38,6 +38,10 @@ func getUserData() (users []schema.User, err error) {
 	return
 }
 
+func getCategories() []schema.Category {
+	return categories
+}
+
 func getCcData() (ccs_ret []schema.Cc, err error) {
 	fmt.Println("lens", len(cards), len(ccs))
 	for i := 0; i < len(ccs); i++ {
@@ -120,4 +124,12 @@ var tags [][]string = [][]string{
 	{"t1", "t2"},
 	{"tag1", "t2"},
 	{"t1", "tag2"},
+}
+
+// HARD CODED CATEGORIES DONT FORGET TO ADD IMP CATEGORIES HERE
+var categories []schema.Category = []schema.Category{
+	{Category: "other", Tag: "t1"},
+	{Category: "other", Tag: "t2"},
+	{Category: "other2", Tag: "tag1"},
+	{Category: "other2", Tag: "tag2"},
 }

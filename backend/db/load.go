@@ -18,7 +18,11 @@ func Load() {
 	db = db.Debug()
 	defer db.Close()
 
-	if err = db.DropTableIfExists(&schema.User{}, &schema.Cc{}, &schema.Tag{}, &schema.Bookmark{}).Error; err != nil {
+	if err = db.DropTableIfExists(&schema.User{}, &schema.Cc{}, &schema.Tag{}).Error; err != nil {
+		log.Fatal(err)
+	}
+
+	if err = db.DropTableIfExists(&schema.Bookmark{}, &schema.Category{}).Error; err != nil {
 		log.Fatal(err)
 	}
 
@@ -28,6 +32,15 @@ func Load() {
 	}
 	if err = db.AutoMigrate(&schema.Category{}, &schema.Bookmark{}).Error; err != nil {
 		log.Fatal(err)
+	}
+
+	// update categories
+	cats := getCategories() // []schema.categories
+	for _, v := range cats {
+		err = db.Model(&schema.Category{}).Create(&v).Error
+		if err != nil {
+			log.Println("couldnot push ", v)
+		}
 	}
 
 	users, err := getUserData()

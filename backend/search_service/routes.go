@@ -23,7 +23,7 @@ func load(r *mux.Router) *mux.Router {
 
 	r.HandleFunc("/search", f(controllers.Search)).Methods(http.MethodGet)
 
-	r.HandleFunc("/category", f(controllers.SearchByTagname)).Methods(http.MethodGet) // LIST ALL CATEG
+	// r.HandleFunc("/category", f(controllers.SearchByTagname)).Methods(http.MethodGet) // LIST ALL CATEG
 	//all popular hardcoded categories which are hand picked tafs only
 
 	// POPULAR CATEGORIES

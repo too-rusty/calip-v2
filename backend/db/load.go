@@ -23,7 +23,10 @@ func Load() {
 	}
 
 	// migrate schema
-	if err = db.AutoMigrate(&schema.User{}, &schema.Cc{}, &schema.Tag{}, &schema.Bookmark{}).Error; err != nil {
+	if err = db.AutoMigrate(&schema.User{}, &schema.Cc{}, &schema.Tag{}).Error; err != nil {
+		log.Fatal(err)
+	}
+	if err = db.AutoMigrate(&schema.Category{}, &schema.Bookmark{}).Error; err != nil {
 		log.Fatal(err)
 	}
 

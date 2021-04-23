@@ -3,11 +3,12 @@ import axios from 'axios';
 import Cookies from 'universal-cookie';
 import EditCard from './subComponents/editcard';
 import MyCard from './subComponents/mycard';
+import { Redirect } from "react-router";
 // import CChainView from "./cchainView"
 
 let marked = require("marked");
 
-
+const cookies = new Cookies();
 
 var inputStyle = {
 width: "400px",
@@ -155,6 +156,9 @@ class EditView extends React.Component {
         ).catch(
             (error) => {
                 if (error.response) {
+                    this.setState({ccid:"NOTFOUND"})
+                    cookies.set('calip_token', "null", { path: '/' })
+                    cookies.set('calip_uname', "nullUser", { path: '/' })
                     console.log(error.response.data)
                 } else {
                     console.log('Show error notification!')
@@ -196,7 +200,9 @@ class EditView extends React.Component {
             error => {
                 if (error.response) {
                     // token is expired
-                    this.props.setToken("null","nullUser")
+                    this.setState({ccid:"NOTFOUND"})
+                    cookies.set('calip_token', "null", { path: '/' })
+                    cookies.set('calip_uname', "nullUser", { path: '/' })
                     console.log(error.response.data)
                 } else {
                     console.log('Show error notification!')
@@ -251,15 +257,18 @@ class EditView extends React.Component {
 
     render() {
         let view
-        if (parseInt(this.state.ccid).toString() === "NaN") {
+        if (this.state.ccid === "NOTFOUND" ) {
+            view = <div>No card , logout then login to view</div>
+            // return <Redirect to={'/'} />
+        } else if (parseInt(this.state.ccid).toString() === "NaN") {
             // REDIRECT
             view = <div>invalid card id</div>
+            // return <Redirect to={'/'} />
         } else if (this.state.ccid === null ) {
             view = <div>Loading ....</div>
-        } else if (this.state.ccid === "NOTFOUND" ){
-            view = <div>No card</div>
         } else if (this.state.editable === false) {
-            view = <div>No card to edit</div>
+            view = <div>No card to edit please logout then login to view</div>
+            // return <Redirect to={'/'} />
         } else {
 
             let cards = this.state.cards.map((val,key)=> {
@@ -322,93 +331,6 @@ class EditView extends React.Component {
     }
 
 }
-
-
-// class EditCard extends React.Component {
-//     constructor(props){
-//         super(props)
-//     }
-//     updateMarkdown(link,content) {
-//         // this.setState({ content });
-//         let isVidCard = this.props.card.link === undefined || this.props.link === "" ? false : true
-//         if (!isVidCard)this.props.editCard(content)
-//         else this.props.editVidCard(link,content)
-//     }
-
-//     componentWillMount(){
-//     }
-//     render(){
-//         // this.props.card is always non null
-//         let markdown = this.props.card.content
-//         let isVidCard = this.props.card.link===undefined || this.props.card.link===""? false : true
-//         let link = this.props.card.link
-//         return (
-//         <div>
-
-//             {isVidCard ? 
-//             <div>
-//             <textarea value={link} onChange={ (e)=>{this.updateMarkdown(e.target.value,"")} } />
-//             </div>
-//             :<div></div>
-//             }
-
-//             <div className="input" style={inputStyle}>
-//                 <textarea
-//                 className="input"
-//                 style={inputStyle}
-//                 value={markdown}
-//                 onChange={(e) => {
-//                     this.updateMarkdown(null,e.target.value);
-//                 }}
-//                 >
-//                 </textarea>
-//             </div>
-
-//                 {/*OUTPUT PREVIEW*/}
-
-//             <div
-//             style={outputStyle}
-//             dangerouslySetInnerHTML={{
-//                 __html: marked(markdown),
-//             }}
-//             ></div>
-//             {isVidCard?
-//             <div><ReactPlayer url={link} controls={true} /></div>
-//             :<div></div>}
-//         </div>
-//         )
-//     }
-//     // render() {
-//     //     return (<div>edit card here</div>)
-//     // }
-// }
-
-
-// class MyCard extends React.Component{
-//     //actually contain the buttons
-//     constructor(props){
-//       super(props)
-//     }
-//     render(){
-//         let content = this.props.content
-//         if(!content)content='EMPTY'
-//         let idx = this.props.idx
-//         let isVidCard=this.props.link===undefined || this.props.link===""?false:true
-//         return (
-//             <div>
-//                 <div
-//                 dangerouslySetInnerHTML={{
-//                     __html: marked(content.substr(0,5)+'...'),
-//                 }}
-//                 ></div>
-//                 <div>{isVidCard?<div>YES</div>:<div>NO</div>}</div>
-//                 <div><button onClick={this.props.deleteCard}>delete</button></div>
-//                 <div><button onClick={()=>this.props.stardEdit(idx)}>edit</button></div>
-//                 {/* <div><button onClick={()=>this.props.save(idx)}>save</button></div> */}
-//             </div>
-//         )
-//     }
-// }
 
 
 export default EditView

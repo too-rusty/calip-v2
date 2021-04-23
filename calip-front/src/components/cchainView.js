@@ -99,12 +99,20 @@ class DetailViewCard extends React.Component {
             {isVidCard?
             <div className="vdo-card"><ReactPlayer url={link} controls={true} /></div>
             :<div></div>}
-            <div className="text-card"
-            
+            <div className="text-card" style={{padding: 20}}>
+            <Scrollbars style={{width:640,height:540,backgroundColor:"#fbf5f3"}}>
+            <div 
+            style={{padding: 20}}
             dangerouslySetInnerHTML={{
                 __html: marked(markdown),
             }}
-            ></div>
+            >
+               
+            </div>
+            </Scrollbars>
+           
+            </div>
+            
             
             </div>
         )

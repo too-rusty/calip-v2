@@ -17,14 +17,14 @@
     align-items: center;
     flex-direction: column;
 }
-.text-card{
+/*.text-card{
     margin: 30px;
     color: #fff;
     padding: 20px;
     border: 2px solid #893168;
     width:600px;
-    height:300px
-}
+    height:500px
+}*/
 .short-card{
     display: flex;
     border-radius: 15px;

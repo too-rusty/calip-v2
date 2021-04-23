@@ -44,7 +44,7 @@ class EditCard extends React.Component {
 
             {isVidCard ? 
             <div>
-            <textarea value={link} onChange={ (e)=>{this.updateMarkdown(e.target.value,"")} } />
+            <textarea value={link} onChange={ (e)=>{this.updateMarkdown(e.target.value,markdown)} } />
             </div>
             :<div></div>
             }

@@ -100,7 +100,8 @@ class DetailViewCard extends React.Component {
             <div className="vdo-card"><ReactPlayer url={link} controls={true} /></div>
             :<div></div>}
             <div className="text-card" style={{padding: 20}}>
-            <Scrollbars style={{width:640,height:540,backgroundColor:"#fbf5f3"}}>
+            {/* fbf5f3  */}
+            <Scrollbars style={{width:640,height:540,backgroundColor:"#e8e6a3"}}>
             <div 
             style={{padding: 20}}
             dangerouslySetInnerHTML={{

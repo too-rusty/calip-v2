@@ -19,7 +19,7 @@ import (
 // if card already created then update the draft / card
 func CreateAndUpdate(w http.ResponseWriter, r *http.Request) {
 	//check token stuff
-	tok := r.Header.Get("Token")
+	tok := r.Header.Get("token")
 	maker, err := token.NewPasetoMaker("abcd1234abcd1234abcd1234abcd1234")
 	if err != nil {
 		responses.ERROR(w, http.StatusInternalServerError, err)

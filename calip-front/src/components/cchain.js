@@ -2,7 +2,9 @@ import React from "react";
 import axios from 'axios';
 import Cookies from 'universal-cookie';
 import { Redirect } from "react-router";
-import CChainView from "./cchainView"
+import CChainView from "./cchainView";
+import './cchain.css';
+import profileImage from '../images/profilephoto.jpg'
 
 class Cchain extends React.Component {
     constructor(props) {
@@ -130,27 +132,49 @@ class Cchain extends React.Component {
 
             let cc = this.state.cardchain
             view = (
-            <div>
-                <div>Title : {cc.title}</div>
-                <div>About : {cc.about}</div>
-                <div>Likes : {cc.likes}</div>
-                <div>By : {cc.username}</div>
-                {/* book mark or not */}
-                <div>{cc.loggedin ? 
+                <div>
+                    <div className="view-hero">
+                        <div className="section-1">
+                        <div className="title">{cc.title}</div>
+                        <div className="about-view"> {cc.about}</div>
+                        <div> Likes:{cc.likes}</div>
+                        <div className="buttons">
+                        <div>{cc.loggedin ? 
                         <div>
+                            
                         {<Bookmark yes={cc.bookmarked} toggleBookmark={this.toggleBookmark.bind(this)} /> }
                         </div> : <div></div> }
-                </div>
-                {/* Editable or not */}
-                <div>
-                {cc.editable ? 
+                        </div>
+                    
+                        
+                         {/* Editable or not */}
+                        <div>
+                        {cc.editable ? 
                         <div>
                         {<button onClick = {() => this.edit() }>Edit</button> }
                         </div> : <div></div> }
-                </div>
+                         </div>
+                        </div>
+                        
+                        
+                        
+                        </div>
+                        <div className="section-2">
+                        <div ><img className="profile-photo" src={profileImage} alt="display image"/></div>
+                        <div className="user">By : {cc.username}</div>
+                        </div>
+                
+              
+                        
+                
+               
+               
 
-                <div><CChainView chain={this.state.cardchain}/></div>
+                
             </div>
+            <div><CChainView chain={this.state.cardchain}/></div>
+                </div>
+            
             )
         }
         return (
@@ -167,8 +191,8 @@ class Bookmark extends React.Component {
     render() {
         return (
             <button onClick={e=>this.props.toggleBookmark(e)}>
-                <div>Bookmarked : </div>
-                {this.props.yes ? <div>YES</div> : <div>NO</div>}
+                <div>Bookmarked : {this.props.yes ? "yes ": "no"}</div>
+                
             </button>
         )
     }

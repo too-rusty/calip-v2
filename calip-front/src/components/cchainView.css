@@ -1,0 +1,46 @@
+.view-section{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+
+    
+}
+.full-view{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    
+}
+.card-details{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.text-card{
+    margin: 30px;
+    color: #fff;
+    padding: 20px;
+    border: 2px solid #893168;
+    width:600px;
+    height:300px
+}
+.short-card{
+    display: flex;
+    border-radius: 15px;
+    box-shadow: inset 5px 5px 5px #893168,
+                inset -5px -5px 15px rgba(255,255,255,0.2),
+                 5px 5px 15px #893168,
+             -5px -5px 15px rgba(255,255,255,0.2);
+    justify-content: center;
+    align-items: center;
+    color: #893168;
+    height: 100px;
+    width: 150px;
+    margin: 20px;
+}
+.chain-view{
+    margin: 50px;
+    padding: 20px;
+    background-color: #0c0910 !important;
+}

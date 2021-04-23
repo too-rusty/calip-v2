@@ -1,5 +1,10 @@
 import React from "react";
-import ReactPlayer from 'react-player'
+import ReactPlayer from 'react-player';
+import './cchainView.css'
+import {Scrollbars} from 'react-custom-scrollbars'
+
+
+
 let marked = require("marked");
 
 var outputStyle = {
@@ -23,6 +28,14 @@ class CChainView extends React.Component {
     setCard(idx){
         this.setState({cidx:idx})
     }
+    renderView({  }) {
+       
+        
+        const customStyle = {
+            backgroundColor: `#893168`
+        };
+        return customStyle;
+    }
     render () {
         if(this.state.cc === null || this.state.cc === undefined) {
             return (
@@ -42,9 +55,9 @@ class CChainView extends React.Component {
         // ok so the above is the short version of all the cards
         let cidx = this.state.cidx
         return (
-            <div>
-            <div>THIS IS THE CCHAINVIEW</div>
-            <div>{cards}</div>
+            <div class="view-section">
+            
+            <div className="full-view">
             {cidx !== null ?
                 <div>
                 {/* <div><PreviewCard card={this.state.cards[cidx]}/></div> */}
@@ -55,6 +68,16 @@ class CChainView extends React.Component {
             : <div> NO PREVIEW, click a card to view </div>
             }
             <div>{cards.length===0?"WOOPS! no card":""}</div>
+            </div>
+            <div className="chain-view">
+                <Scrollbars style={{width:300,height:600,color:"yellow !important" }}
+                 >
+                    
+            <div>{cards}</div>
+            </Scrollbars>
+            </div>
+           
+            
             </div>
         )
     }
@@ -72,16 +95,17 @@ class DetailViewCard extends React.Component {
         let isVidCard = this.props.card.link==='' ? false : true
         let link = this.props.card.link
         return (
-            <div>
-            <div
-            style={outputStyle}
+            <div className="card-details">
+            {isVidCard?
+            <div className="vdo-card"><ReactPlayer url={link} controls={true} /></div>
+            :<div></div>}
+            <div className="text-card"
+            
             dangerouslySetInnerHTML={{
                 __html: marked(markdown),
             }}
             ></div>
-            {isVidCard?
-            <div><ReactPlayer url={link} controls={true} /></div>
-            :<div></div>}
+            
             </div>
         )
     }
@@ -100,21 +124,34 @@ class ShortViewCard extends React.Component{
         let idx = this.props.idx
         let isVidCard=this.props.link===undefined?false:true
         return (
-            <div>
-                <div
+            
+            <div className="cardcolumn">
+             
+                <div className="short-card" onClick = {()=> this.props.setCard(idx)}>
+                #{idx+1}
+              
+            </div>
+            
+           
+            
+
+            </div>
+            
+            
+        )
+    }
+}
+
+/*
+
+  <div
                 dangerouslySetInnerHTML={{
                     __html: marked(content.substr(0,5)+'...'),
                 }}
                 ></div>
                 <div>{isVidCard?<div>YES</div>:<div>NO</div>}</div>
                 <div><button onClick = {()=> this.props.setCard(idx)} > Card {idx+1} </button></div>
-                {/* <div><button onClick={()=>this.props.save(idx)}>save</button></div> */}
-            </div>
-        )
-    }
-}
-
-/*
+                {/* <div><button onClick={()=>this.props.save(idx)}>save</button></div> }
 the overview is this
 
 there is a main component which contains all the cards in a short view

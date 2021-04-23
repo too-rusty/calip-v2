@@ -196,7 +196,7 @@ class EditView extends React.Component {
             error => {
                 if (error.response) {
                     // token is expired
-                    this.props.setToken("null")
+                    this.props.setToken("null","nullUser")
                     console.log(error.response.data)
                 } else {
                     console.log('Show error notification!')

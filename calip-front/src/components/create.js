@@ -3,6 +3,7 @@ import { Redirect } from "react-router";
 import axios from 'axios'
 import EditCard from './subComponents/editcard';
 import MyCard from './subComponents/mycard';
+import {Link} from "react-router-dom";
 
 import './create.css'
 
@@ -215,6 +216,9 @@ class Create extends React.Component {
 
         let cidx = this.state.currentCardIdx
 
+        let markdown_url = `https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet`
+        let markdown_link = <a href={markdown_url}>Markdown CheatSheet</a>
+
         return (
         
             <div className="create-card" >
@@ -224,6 +228,11 @@ class Create extends React.Component {
                 <div><button onClick={this.saveChain.bind(this)}>save draft</button></div>
                 <div><button onClick={this.publishChain.bind(this)}>publish</button></div>
                 </div>
+
+                <div>
+                    <h4>{markdown_link}</h4>
+                    <p>Since we are using markdown to render your ideas!</p>
+                </div> {/* style this on the side so that users can refer it by going to the ling */}
                 
                 <div className="information">
                 <div>

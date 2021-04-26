@@ -27,7 +27,7 @@ class EditCard extends React.Component {
     }
     updateMarkdown(link,content) {
         // this.setState({ content });
-        let isVidCard = this.props.card.link === undefined || this.props.link === "" ? false : true
+        let isVidCard = this.props.card.link === undefined ? false : true
         if (!isVidCard)this.props.editCard(content)
         else this.props.editVidCard(link,content)
     }
@@ -37,7 +37,7 @@ class EditCard extends React.Component {
     render(){
         // this.props.card is always non null
         let markdown = this.props.card.content
-        let isVidCard = this.props.card.link===undefined || this.props.card.link===""? false : true
+        let isVidCard = this.props.card.link===undefined ? false : true
         let link = this.props.card.link
         return (
         <div>

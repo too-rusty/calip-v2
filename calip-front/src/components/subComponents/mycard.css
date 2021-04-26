@@ -1,0 +1,19 @@
+.mycards {
+  border: 2px solid #893168;
+  width: 180px;
+  height: 130px;
+  margin: 12.5px 00px 12.5px 50px;
+  border-radius: 30px;
+  padding: 20px;
+}
+.mybuttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+.mybutton {
+  padding: 3px;
+  width: 50px;
+  margin: 5px;
+}

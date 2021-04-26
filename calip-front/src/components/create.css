@@ -1,18 +1,80 @@
-.buttons{
-    display: flex;
-    justify-content: space-around;
-    flex-direction: row;
-    margin-top: 25px;
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row !important;
+  margin-top: 25px;
 }
-.create-card{
-    margin: 20px;
-    padding: 5px;
+.create-card {
+  margin: 20px;
+  padding: 5px;
+  width: 80vw;
 }
-.information{
-    display: flex;
-    
-    align-items: center;
-    padding: 5px;
-    margin:20px 10px;
-    flex-direction: column;
+.information {
+  display: flex;
+  align-items: left;
+  padding: 5px;
+  margin: 20px 10px;
+  flex-direction: column;
+  color: #fbf3f5;
+  border-bottom: 4px solid #893168;
+}
+label {
+  color: #fbf3f5;
+}
+input {
+  margin: 5px 20px;
+  background-color: #0c0910;
+  border: none;
+  border-bottom: 2px solid #893168;
+  width: 500px;
+  color: #fbf3f5;
+}
+p {
+  margin: 10px;
+  font-size: 20px;
+}
+.cards-create {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 20px;
+}
+.shortview {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 600px;
+}
+.scrollbar {
+  margin-left: 22px;
+  float: left;
+  height: 500px;
+  width: 300px;
+
+  overflow-y: scroll;
+  margin-bottom: 25px;
+}
+
+.force-overflow {
+  min-height: 450px;
+}
+
+#style-1::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #0c0910;
+}
+
+#style-1::-webkit-scrollbar {
+  width: 12px;
+  background-color: #0c0910;
+}
+
+#style-1::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #893168;
+}
+.cards-create {
+  margin: 50px;
 }

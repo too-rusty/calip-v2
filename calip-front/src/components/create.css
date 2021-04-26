@@ -78,3 +78,6 @@ p {
 .cards-create {
   margin: 50px;
 }
+.out {
+  color: black !important;
+}

@@ -8,9 +8,9 @@
   justify-content: center;
   flex-direction: column;
 }
-p {
+/* p {
   color: #f5f5f5;
-}
+} */
 
 .view-scrollbar {
   margin-left: 22px;

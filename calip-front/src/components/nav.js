@@ -85,6 +85,9 @@ class Nav extends React.Component {
                 <Link className="navbar-brand" to={'/'}>Home</Link>
                 <Link className="navbar-brand" to={'/create'}>Create</Link>
                 <Link className="navbar-brand" to={'/categories'}>Categories</Link>
+                <Link className="navbar-brand" to={'/cc'}>Explore</Link>
+                <Link className="navbar-brand" to={'/about'}>About</Link>
+                <Link className="navbar-brand" to={'/protips'}>Protips</Link>
               </ReactBootstrap.Nav>
               <ReactBootstrap.Form inline>
                 {buttons}

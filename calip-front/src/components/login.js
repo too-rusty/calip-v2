@@ -9,6 +9,7 @@ class Login extends React.Component {
         this.state = {
             password:"",
             username:"",
+            message : "",
         }
     }
 
@@ -49,9 +50,10 @@ class Login extends React.Component {
                 
             }
         ).catch(
-            function (error) {
+            (error) => {
                 if (error.response) {
                     console.log(error.response.data)
+                    this.setState({message: error.response.data.error})
                 } else {
                     console.log('Show error notification!')
                 }
@@ -69,6 +71,7 @@ class Login extends React.Component {
             return <Redirect to={'/'} />
         }
         return (
+            <div>
             <form onSubmit={ this.handleSubmit.bind(this) }>
                 <h3>Login</h3>
 
@@ -83,10 +86,10 @@ class Login extends React.Component {
                     <input name="password" type="password" className="form-control" placeholder="Password"
                     onChange = { this.changeHandler.bind(this) } />
                 </div>
-
                 <button className="btn btn-primary btn-block">Login</button>
-
             </form>
+            <div>Message from backend : {this.state.message} </div>
+            </div>
         )
     }
 }

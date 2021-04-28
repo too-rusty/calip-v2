@@ -10,7 +10,8 @@ class Signup extends React.Component {
             email:"",
             password:"",
             confirmPassword:"",
-            username:""
+            username:"",
+            message:""
         }
     }
 
@@ -27,13 +28,7 @@ class Signup extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault()
-        // const data  = {
-        //     name : this.state.name,
-        //     email : this.state.email,
-        //     password : this.state.password,
-        //     confirmPassword : this.state.confirmPassword,
-        //     username : this.state.username
-        // }
+        
         let data = {
             "username":this.state.username,
             "password":this.state.password,
@@ -51,9 +46,10 @@ class Signup extends React.Component {
                 console.log(res, "ok", res.status)
             }
         ).catch(
-            function (error) {
+            (error) => {
                 if (error.response) {
                     console.log(error.response.data)
+                    this.setState({message:error.response.data.error})
                 } else {
                     console.log('Show error notification!')
                 }
@@ -69,6 +65,7 @@ class Signup extends React.Component {
             return <Redirect to={'/'} />
         }
         return (
+            <div>
             <form onSubmit={ this.handleSubmit.bind(this) }>
                 <h3>Sign up</h3>
 
@@ -96,15 +93,17 @@ class Signup extends React.Component {
                     onChange = { this.changeHandler.bind(this) } />
                 </div>
 
-                <div className="form-group">
+                {/* <div className="form-group">
                     <label>Confirm Password</label>
                     <input name="confirmPassword "type="password" className="form-control" placeholder="Confirm Password"
                     onChange = { this.changeHandler.bind(this) } />
-                </div>
+                </div> */}
 
                 <button className="btn btn-primary btn-block">Sign up</button>
 
             </form>
+            <div>Message from backend : {this.state.message}</div>
+            </div>
         )
     }
 }

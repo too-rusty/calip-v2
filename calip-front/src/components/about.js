@@ -110,6 +110,13 @@ class About extends React.Component {
             powered Search and recommendation engine
           </p>
         </div>
+
+        <div>
+          <h2>Contact and feedback</h2>
+          <p>
+            I can be reached out at abhish014@gmail.com , any feedback is welcome :)
+          </p>
+        </div>
       </div>
     );
   }

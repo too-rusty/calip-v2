@@ -47,8 +47,13 @@ class Categories extends React.Component{
         })
         return (
             <div>
+                <div>
+                    Some tags on the most common categories, more to be added soon.
+                </div>
+                <div>
                 Categories
                 {component_tags}
+                </div>
             </div>
         )
     }

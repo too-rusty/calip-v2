@@ -43,7 +43,8 @@ h4 {
   border: 2px solid #893168;
   background-color: #fbf5f3;
   padding: 20px;
-  margin: 10px;
+  margin: 50px 30px;
+  border-radius: 30px;
 }
 .section-cards {
   margin: 20px;
@@ -51,7 +52,7 @@ h4 {
 .scrollbar {
   margin-left: 22px;
   float: left;
-  height: 500px;
+  height: 250px;
   width: 100%;
 
   overflow-y: scroll;
@@ -59,7 +60,7 @@ h4 {
 }
 
 .force-overflow {
-  min-height: 450px;
+  min-height: 250px;
 }
 
 #style-1::-webkit-scrollbar-track {

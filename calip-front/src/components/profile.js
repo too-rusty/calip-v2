@@ -94,12 +94,14 @@ class Profile extends React.Component {
           ? []
           : this.state.drafts.map((val, key) => {
               return (
-                <Card
-                  key={key}
-                  ccid={val.ccid}
-                  title={val.title}
-                  isDraft={true}
-                />
+                <div className="bookmark">
+                  <Card
+                    key={key}
+                    ccid={val.ccid}
+                    title={val.title}
+                    isDraft={true}
+                  />
+                </div>
               );
             });
     }
@@ -139,18 +141,17 @@ class Profile extends React.Component {
             <h4>Bookmarked Cards</h4>
             <div class="scrollbar" id="style-1">
               <div class="force-overflow">
-                <div className="section-bookmarks">
-                  {bookmarks}
-                  {bookmarks}
-                </div>
+                <div className="section-bookmarks">{bookmarks}</div>
               </div>
             </div>
           </div>
           <div className="section-hero">
-            <h4>Drafts</h4>
-            <div class="scrollbar" id="style-1">
-              <div class="force-overflow">
-                <div className="section-drafts">{alldrafts}</div>
+            <div className="bookmarks">
+              <h4>Drafts</h4>
+              <div class="scrollbar" id="style-1">
+                <div class="force-overflow">
+                  <div className="section-bookmarks">{alldrafts}</div>
+                </div>
               </div>
             </div>
           </div>
@@ -189,11 +190,9 @@ class Card extends React.Component {
       <div>
         <Link to={link}>
           <div>ccid : {ccid}</div>
-          <div>
-            <Link to={link}>About</Link>
-          </div>
+
           <div>title : {title}</div>
-          <div>---------------------</div>
+
           {/* <div>
             <div className="sc-heading">{title}</div>
             <div className="user"> {by_user}</div>

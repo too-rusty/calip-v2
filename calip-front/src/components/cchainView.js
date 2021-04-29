@@ -106,10 +106,16 @@ class DetailViewCard extends React.Component {
         <div className="text-card" style={{ padding: 20 }}>
           {/* fbf5f3  */}
           <Scrollbars
-            style={{ width: 640, height: 540, backgroundColor: "#e8e6a3" }}
+            style={{
+              width: 640,
+              height: 540,
+              backgroundColor: "#e8e6a3",
+              color: "black",
+            }}
           >
             <div
-              style={{ padding: 20 }}
+              className="disp"
+              style={{ padding: 20, color: "black" }}
               dangerouslySetInnerHTML={{
                 __html: marked(markdown),
               }}

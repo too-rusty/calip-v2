@@ -6,36 +6,27 @@ class About extends React.Component {
     return (
       <div style={{ padding: 50 }}>
         <div>
-          <h2>Calip for learners</h2>
+          <h2>What is calip ?</h2>
           <p>
-            Calip is a content creation and Content discovery platform. Calip
-            has been designed with the idea that users can learn a topic in a
-            relatively short amount of time for free and have fun at the same
-            time. We are working on a personalised local search engine to
-            provide the best recommendations about the courses created on calip
-            Courses are simply a playlist of insightful and knowledge packed
-            cards , which can be created by anyone.
+            Calip is an idea sharing platform. Users can share ideas, 
+            create courses in the form of small innovative byte sized custom cards.
+            Creators can make courses as a card chain consisting of high value informative cards
+            mixing their own insights while aggregating the best content from all over the internet.
+            Learners can find card chains relevant to them and learn complex stuff in a matter of minutes.
+            In simple terms we are making a definitive gateway to the dispersed sea of information out there, 
+            the internet, powered by the users of the platform.
           </p>
         </div>
 
         <div>
-          <h2>Calip for creators</h2>
+          <h2>Calip for learners</h2>
           <p>
-            There are many websites where subject experts can create and sell
-            courses, but those require you to be expert in a whole subject or a
-            set of topics. Calip is a place for creators to create educational
-            and informational courses/content/blogs via aggregation along with a
-            mix of their own insights There are two various ways to master a
-            topic , but why start from the beginning when you can already build
-            upon the experiences of others. We believe that anyone can create
-            course / content on calip that is useful to others ( and even sell
-            them in the future ) You don’t need to be a subject expert to do so
-            and can create courses with ease via aggregation of best materials
-            from all over the internet By using markdown to style your ideas,
-            you can create useful courses in many ways , videos, images ,
-            formatting etc. Create a card chain consisting of many byte sized
-            cards , video cards ( cards with embedded youtube vids / twitch
-            videos )
+            In a world where attention span is limited and social media is booming,
+            calip has been designed with the idea that people can learn a topic in a 
+            relatively short amount of time with some level of mastery in that topic.
+            Calip is a content creation and Content discovery platform .
+            We are working on a personalised local search engine to provide the best recommendations
+            about the courses created on calip.
           </p>
         </div>
 
@@ -117,6 +108,13 @@ class About extends React.Component {
             create useful courses for the masses in an easy manner. Make a
             platform where learners can upskill themselves with the help of AI
             powered Search and recommendation engine
+          </p>
+        </div>
+
+        <div>
+          <h2>Contact and feedback</h2>
+          <p>
+            I can be reached out at abhish014@gmail.com , any feedback is welcome :)
           </p>
         </div>
       </div>

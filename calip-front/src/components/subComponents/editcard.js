@@ -58,6 +58,7 @@ class EditCard extends React.Component {
             <div class="view-scrollbar" id="view-style-1">
               <div class="force-overflow">
                 <div
+                  className="outp"
                   style={outputStyle}
                   dangerouslySetInnerHTML={{
                     __html: marked(markdown),

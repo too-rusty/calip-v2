@@ -23,7 +23,7 @@ function Footer() {
               CALIP
             </Link>
           </div>
-          <small className='website-rights'>Calip © 2020</small>
+          <small className='website-rights'>Calip © 2021</small>
           <div className='social-icons'>
             <Link
               className='social-icon-link'
@@ -44,7 +44,7 @@ function Footer() {
             <Link
               className='social-icon-link'
               to={
-                '//www.youtube.com/channel/UCsKsymTY_4BYR-wytLjex7A?view_as=subscriber'
+                '/'
               }
               target='_blank'
               aria-label='Youtube'
@@ -59,14 +59,14 @@ function Footer() {
             >
               <FaTwitter />
             </Link>
-            <Link
+            {/* <Link
               className='social-icon-link'
-              to='/'
+              to='//'
               target='_blank'
               aria-label='LinkedIn'
-            >
-              <FaLinkedin />
-            </Link>
+            > */}
+             <a href="https://www.linkedin.com/company/calip/" target='_blank' ><FaLinkedin/></a> 
+            {/* </Link> */}
           </div>
         </div>
       </section>

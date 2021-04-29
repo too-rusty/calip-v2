@@ -32,7 +32,7 @@ type Card struct {
 }
 type Draft struct {
 	Ccid      uint      `json:"ccid"`
-	Title     string    `json:"string"`
+	Title     string    `json:"title"`
 	UpdatedAt time.Time `json:"updated_at"`
 	// maybe about too
 }

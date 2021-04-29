@@ -93,12 +93,14 @@ class Profile extends React.Component {
         this.state.drafts === null
           ? []
           : this.state.drafts.map((val, key) => {
-              <Card
-                key={key}
-                ccid={val.ccid}
-                title={val.title}
-                isDraft={true}
-              />;
+              return (
+                <Card
+                  key={key}
+                  ccid={val.ccid}
+                  title={val.title}
+                  isDraft={true}
+                />
+              );
             });
     }
 
@@ -146,11 +148,11 @@ class Profile extends React.Component {
           </div>
           <div className="section-hero">
             <h4>Drafts</h4>
-            {/* <div class="scrollbar" id="style-1">
+            <div class="scrollbar" id="style-1">
               <div class="force-overflow">
                 <div className="section-drafts">{alldrafts}</div>
               </div>
-            </div> */}
+            </div>
           </div>
           <div className="section-hero">
             <h4>My Cards</h4>
@@ -186,14 +188,16 @@ class Card extends React.Component {
     let view = (
       <div>
         <Link to={link}>
-          {/* <div>ccid : {ccid}</div>
-          <div></div>
-          <div>title : {title}</div>
-          <div>---------------------</div> */}
+          <div>ccid : {ccid}</div>
           <div>
+            <Link to={link}>About</Link>
+          </div>
+          <div>title : {title}</div>
+          <div>---------------------</div>
+          {/* <div>
             <div className="sc-heading">{title}</div>
             <div className="user"> {by_user}</div>
-          </div>
+          </div> */}
         </Link>
       </div>
     );

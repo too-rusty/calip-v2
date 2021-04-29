@@ -130,6 +130,7 @@ var tags [][]string = [][]string{
 var categories []schema.Category = []schema.Category{
 	{Category: "Upskill", Tag: "webdev"},
 	{Category: "Upskill", Tag: "coding"},
+	{Category: "Upskill", Tag: "python"},
 	{Category: "Upskill", Tag: "design"},
 	{Category: "Upskill", Tag: "marketing"},
 	{Category: "Upskill", Tag: "trading"},
@@ -140,6 +141,14 @@ var categories []schema.Category = []schema.Category{
 	{Category: "Life", Tag: "mind"},
 	{Category: "Life", Tag: "motivation"},
 
-	{Category: "Others", Tag: "theory"},
-	{Category: "Others", Tag: "nutrition"},
+	{Category: "Trending", Tag: "covid"},
+
+	{Category: "Exams", Tag: "cat"},
+	{Category: "Exams", Tag: "ias"},
+	{Category: "Exams", Tag: "interview"},
+
+	{Category: "CS", Tag: "cpp"},
+	{Category: "CS", Tag: "golang"},
+	{Category: "CS", Tag: "javascript"},
+	{Category: "CS", Tag: "machinelearning"},
 }

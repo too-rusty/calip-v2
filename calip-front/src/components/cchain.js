@@ -95,12 +95,6 @@ class Cchain extends React.Component {
             }
         )
 
-        
-
-
-
-
-
     }
     componentWillUnmount() {
         this._isMounted = false
@@ -164,14 +158,7 @@ class Cchain extends React.Component {
                         <div ><img className="profile-photo" src={profileImage} alt="display image"/></div>
                         <div className="user"><Link to={`/profile/${cc.username}`}>{cc.username}</Link></div>
                         </div>
-                
-              
-                        
-                
-               
-               
-
-                
+ 
             </div>
             <div><CChainView chain={this.state.cardchain}/></div>
                 </div>
@@ -193,18 +180,10 @@ class Bookmark extends React.Component {
         return (
             <button onClick={e=>this.props.toggleBookmark(e)}>
                 <div>Bookmarked : {this.props.yes ? "yes ": "no"}</div>
-                
             </button>
         )
     }
 }
-
-class CchainSub extends React.Component {
-    constructor(props) {
-        super(props)
-    }
-}
-
 
 
 export default Cchain

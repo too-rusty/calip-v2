@@ -128,8 +128,18 @@ var tags [][]string = [][]string{
 
 // HARD CODED CATEGORIES DONT FORGET TO ADD IMP CATEGORIES HERE
 var categories []schema.Category = []schema.Category{
-	{Category: "other", Tag: "t1"},
-	{Category: "other", Tag: "t2"},
-	{Category: "other2", Tag: "tag1"},
-	{Category: "other2", Tag: "tag2"},
+	{Category: "Upskill", Tag: "webdev"},
+	{Category: "Upskill", Tag: "coding"},
+	{Category: "Upskill", Tag: "design"},
+	{Category: "Upskill", Tag: "marketing"},
+	{Category: "Upskill", Tag: "trading"},
+	{Category: "Upskill", Tag: "language"},
+	{Category: "Upskill", Tag: "yoga"},
+
+	{Category: "Life", Tag: "health"},
+	{Category: "Life", Tag: "mind"},
+	{Category: "Life", Tag: "motivation"},
+
+	{Category: "Others", Tag: "theory"},
+	{Category: "Others", Tag: "nutrition"},
 }

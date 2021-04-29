@@ -3,6 +3,7 @@ import axios from 'axios';
 import Cookies from 'universal-cookie';
 import { Redirect } from "react-router";
 import CChainView from "./cchainView";
+import { Link } from "react-router-dom";
 import './cchain.css';
 import profileImage from '../images/profilephoto.jpg'
 
@@ -137,7 +138,7 @@ class Cchain extends React.Component {
                         <div className="section-1">
                         <div className="title">{cc.title}</div>
                         <div className="about-view"> {cc.about}</div>
-                        <div> Likes:{cc.likes}</div>
+                        {/* <div> Likes:{cc.likes}</div> */}
                         <div className="buttons">
                         <div>{cc.loggedin ? 
                         <div>
@@ -161,7 +162,7 @@ class Cchain extends React.Component {
                         </div>
                         <div className="section-2">
                         <div ><img className="profile-photo" src={profileImage} alt="display image"/></div>
-                        <div className="user">By : {cc.username}</div>
+                        <div className="user"><Link to={`/profile/${cc.username}`}>{cc.username}</Link></div>
                         </div>
                 
               

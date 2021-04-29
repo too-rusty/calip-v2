@@ -1,0 +1,21 @@
+.sign-up {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: left;
+  width: 60vw;
+}
+.form {
+  margin: 50px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 80vw;
+}
+button :hover {
+  background-color: #893168 !important;
+  padding: 5px 10px;
+}

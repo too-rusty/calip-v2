@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { Redirect } from "react-router";
 import { Link } from "react-router-dom";
+import "./signup.css";
 
 class Signup extends React.Component {
   constructor(props) {
@@ -66,8 +67,8 @@ class Signup extends React.Component {
       return <Redirect to={"/"} />;
     }
     return (
-      <>
-        <form onSubmit={this.handleSubmit.bind(this)}>
+      <div className="sign-up">
+        <form className="form" onSubmit={this.handleSubmit.bind(this)}>
           <h3>Sign up</h3>
 
           <div className="form-group">
@@ -125,10 +126,15 @@ class Signup extends React.Component {
             />
           </div>
 
-          <button className="btn btn-primary btn-block">Sign up</button>
+          <button className="btn">Sign up</button>
         </form>
-        <div>Already have an account</div>
-      </>
+        <div style={{ color: "white" }}>
+          Already have an account{" "}
+          <Link className="link" to={"/login"}>
+            Login
+          </Link>
+        </div>
+      </div>
     );
   }
 }

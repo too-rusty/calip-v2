@@ -1,8 +1,8 @@
-/* * {
+/* /* * {
   box-sizing: border-box;
 } */
 
-body {
+/* body {
   min-height: 100vh;
 
   display: flex;
@@ -18,7 +18,7 @@ html,
 .auth-wrapper {
   width: 100%;
   height: 40%;
-}
+} */
 
 /*.auth-wrapper {
     display: flex;
@@ -42,7 +42,7 @@ html,
    
 }*/
 
-.auth-inner {
+/* .auth-inner {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -52,4 +52,4 @@ html,
   min-width: 100vw;
   min-height: 100vh;
   padding: 30px;
-}
+} */

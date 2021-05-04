@@ -3,8 +3,8 @@ import React from "react";
 class Protips extends React.Component {
   render() {
     return (
-      <div>
-        <h2>Some tips on how to make the best use of platform</h2>
+      <div className="about">
+        <h3>Some tips on how to make the best use of platform</h3>
         <p>
           <ol>
             <li>Keep you cards small in size ( atmost 100 words )</li>

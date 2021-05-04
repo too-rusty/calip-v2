@@ -71,10 +71,10 @@ button:hover {
   margin: 0px 10px;
   transform: translateY(-50px);
   padding: 20px;
-  border: 2px solid #05299e;
   width: 250px;
-  background-color: #738fec;
+  background-color: #fff;
   border-radius: 30px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .card p {
   color: #05299e;

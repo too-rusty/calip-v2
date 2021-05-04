@@ -4,34 +4,37 @@ import "./about.css";
 class About extends React.Component {
   render() {
     return (
-      <div style={{ padding: 50 }}>
+      <div className="about">
         <div>
-          <h2>What is calip ?</h2>
+          <h3>What is calip ?</h3>
           <p>
-            Calip is an idea sharing platform. Users can share ideas, 
-            create courses in the form of small innovative byte sized custom cards.
-            Creators can make courses as a card chain consisting of high value informative cards
-            mixing their own insights while aggregating the best content from all over the internet.
-            Learners can find card chains relevant to them and learn complex stuff in a matter of minutes.
-            In simple terms we are making a definitive gateway to the dispersed sea of information out there, 
-            the internet, powered by the users of the platform.
+            Calip is an idea sharing platform. Users can share ideas, create
+            courses in the form of small innovative byte sized custom cards.
+            Creators can make courses as a card chain consisting of high value
+            informative cards mixing their own insights while aggregating the
+            best content from all over the internet. Learners can find card
+            chains relevant to them and learn complex stuff in a matter of
+            minutes. In simple terms we are making a definitive gateway to the
+            dispersed sea of information out there, the internet, powered by the
+            users of the platform.
           </p>
         </div>
 
         <div>
-          <h2>Calip for learners</h2>
+          <h3>Calip for learners</h3>
           <p>
-            In a world where attention span is limited and social media is booming,
-            calip has been designed with the idea that people can learn a topic in a 
-            relatively short amount of time with some level of mastery in that topic.
-            Calip is a content creation and Content discovery platform .
-            We are working on a personalised local search engine to provide the best recommendations
-            about the courses created on calip.
+            In a world where attention span is limited and social media is
+            booming, calip has been designed with the idea that people can learn
+            a topic in a relatively short amount of time with some level of
+            mastery in that topic. Calip is a content creation and Content
+            discovery platform . We are working on a personalised local search
+            engine to provide the best recommendations about the courses created
+            on calip.
           </p>
         </div>
 
         <div>
-          <h2>What is a card chain ?</h2>
+          <h3>What is a card chain ?</h3>
           <p>
             Well think youtube playlist but hackable. Card chains are simply
             collection of cards in some order. Cards are collection of your
@@ -42,7 +45,7 @@ class About extends React.Component {
         </div>
 
         <div>
-          <h2>Why would you Create courses on calip ?</h2>
+          <h3>Why would you Create courses on calip ?</h3>
           <p>
             <ol>
               <li>
@@ -85,7 +88,7 @@ class About extends React.Component {
         </div>
 
         <div>
-          <h2>Why not youtube, Why calip ?</h2>
+          <h3>Why not youtube, Why calip ?</h3>
           <p>
             Well youtube is a very nice platform where you can upload your
             videos , infact we recommend it You can then embed those videos in
@@ -102,7 +105,7 @@ class About extends React.Component {
         </div>
 
         <div>
-          <h2>Our Goals</h2>
+          <h3>Our Goals</h3>
           <p>
             Make a platform which is a paradise for content creators , who can
             create useful courses for the masses in an easy manner. Make a
@@ -112,9 +115,10 @@ class About extends React.Component {
         </div>
 
         <div>
-          <h2>Contact and feedback</h2>
+          <h3>Contact and feedback</h3>
           <p>
-            I can be reached out at abhish014@gmail.com , any feedback is welcome :)
+            I can be reached out at abhish014@gmail.com , any feedback is
+            welcome :)
           </p>
         </div>
       </div>

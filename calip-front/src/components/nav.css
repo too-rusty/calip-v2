@@ -7,7 +7,7 @@
   background-color: #05299e !important;
   font-size: 25px;
   width: 100vw;
-  height: 80px;
+  height: 65px;
 }
 .logo {
   height: 50px;
@@ -33,7 +33,7 @@
   padding: 0px 10px;
   border-radius: 30px;
   box-shadow: 0 0 5px #fbf5f3;
-  font-size: 20px;
+  font-size: 16px;
   transform: translateY(-5px);
 }
 .nav-link {
@@ -44,7 +44,7 @@
 
   transition: all 0.2s;
   box-shadow: 0 0 20px #fff;
-  font-size: 22px;
+  font-size: 20px;
   border-radius: 30px;
 }
 .nav-link:hover {

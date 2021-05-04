@@ -1,16 +1,16 @@
 .home {
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   text-align: center;
-  align-items: center;
-  /* width: 100vw;
-  height: 100vh; */
+  /* align-items: center; */
+  width: 100vw;
+  min-height: 800px;
   flex-direction: column;
 }
 .home-hero {
   background-image: url(../images/Imgbg.jpg);
   width: 100vw;
-  height: 500px;
+  min-height: 500px !important;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -20,7 +20,7 @@
   text-align: center;
   flex-direction: column;
   color: #fff;
-  transform: translateY(-10px);
+  /* transform: translateY(-10px); */
 
   /* backgroundImage: url(../images/Imgbg.jpg),
         backgroundRepeat: "no-repeat",
@@ -32,15 +32,18 @@
         backgroundrepeat: "no-repeat", */
 }
 .home-title {
-  font-size: 32px;
+  font-size: 28px;
 }
 .home-about {
-  font-size: 28px;
-  margin: 20px 150px;
-  padding: 10px 250px;
+  font-size: 18px;
+  margin: 20px 50px;
+  padding: 10px 100px;
 }
 .home-buttons {
   color: #000 !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 button {
   margin: 5px 10px;
@@ -58,25 +61,69 @@ button:hover {
 
   transition: all 0.2s;
   box-shadow: 0 0 20px #fff;
-  font-size: 22px;
+  font-size: 18px;
   border-radius: 30px;
 }
 .cards {
+  min-height: 400px;
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 .card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   color: #05299e;
   margin: 0px 10px;
-  transform: translateY(-50px);
+  transform: translateY(-100px);
   padding: 20px;
   width: 250px;
-  height: 250px;
+  height: 300px;
   background-color: #fff;
   border-radius: 30px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .card p {
   color: #05299e;
+  font-size: 18px;
+  padding: 0px;
+  margin: 0px;
+}
+.card h3 {
+  margin: 10px;
+}
+.display-image {
+  width: 100px;
+  height: 50px;
+  margin: 10px 0px 20px 0px;
+}
+
+@media (max-width: 760px) {
+  .home {
+    height: 1400px;
+  }
+  .home-about {
+    margin: 20px;
+    padding: 20px;
+    height: 200px !important;
+  }
+  .home-buttons {
+    flex-direction: column;
+  }
+  .cards {
+    flex-direction: column;
+    height: 1000px;
+    justify-content: center;
+    align-items: center;
+  }
+  .card {
+    width: 200px;
+    height: 250px;
+    transform: none;
+    margin: 30px 10px;
+  }
 }

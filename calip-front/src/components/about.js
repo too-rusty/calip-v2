@@ -6,7 +6,7 @@ class About extends React.Component {
     return (
       <div className="about">
         <div>
-          <h3>What is calip ?</h3>
+          <h4>What is calip ?</h4>
           <p>
             Calip is an idea sharing platform. Users can share ideas, create
             courses in the form of small innovative byte sized custom cards.
@@ -21,7 +21,7 @@ class About extends React.Component {
         </div>
 
         <div>
-          <h3>Calip for learners</h3>
+          <h4>Calip for learners</h4>
           <p>
             In a world where attention span is limited and social media is
             booming, calip has been designed with the idea that people can learn
@@ -34,7 +34,7 @@ class About extends React.Component {
         </div>
 
         <div>
-          <h3>What is a card chain ?</h3>
+          <h4>What is a card chain ?</h4>
           <p>
             Well think youtube playlist but hackable. Card chains are simply
             collection of cards in some order. Cards are collection of your
@@ -45,7 +45,7 @@ class About extends React.Component {
         </div>
 
         <div>
-          <h3>Why would you Create courses on calip ?</h3>
+          <h4>Why would you Create courses on calip ?</h4>
           <p>
             <ol>
               <li>
@@ -88,7 +88,7 @@ class About extends React.Component {
         </div>
 
         <div>
-          <h3>Why not youtube, Why calip ?</h3>
+          <h4>Why not youtube, Why calip ?</h4>
           <p>
             Well youtube is a very nice platform where you can upload your
             videos , infact we recommend it You can then embed those videos in
@@ -105,7 +105,7 @@ class About extends React.Component {
         </div>
 
         <div>
-          <h3>Our Goals</h3>
+          <h4>Our Goals</h4>
           <p>
             Make a platform which is a paradise for content creators , who can
             create useful courses for the masses in an easy manner. Make a
@@ -115,7 +115,7 @@ class About extends React.Component {
         </div>
 
         <div>
-          <h3>Contact and feedback</h3>
+          <h4>Contact and feedback</h4>
           <p>
             I can be reached out at abhish014@gmail.com , any feedback is
             welcome :)

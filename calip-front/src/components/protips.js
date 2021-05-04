@@ -4,7 +4,7 @@ class Protips extends React.Component {
   render() {
     return (
       <div className="about">
-        <h3>Some tips on how to make the best use of platform</h3>
+        <h4>Some tips on how to make the best use of platform</h4>
         <p>
           <ol>
             <li>Keep you cards small in size ( atmost 100 words )</li>

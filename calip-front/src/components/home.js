@@ -3,8 +3,12 @@ import React from "react";
 import Cookies from "universal-cookie";
 import { Link } from "react-router-dom";
 import "./home.css";
+
 import * as ReactBootstrap from "react-bootstrap";
 import ImgBg from "../images/Imgbg.jpg";
+import content from "../images/content.svg";
+import creators from "../images/creaters.svg";
+import students from "../images/students.svg";
 class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -41,19 +45,22 @@ class Home extends React.Component {
         </div>
         <div className="cards">
           <div className="card">
+            <img className="display-image" src={content} alt="content" />
             <p>More than</p>
-            <h1>500+</h1>
-            <p>topics to study</p>
+            <h3>500+</h3>
+            <p>topics in the form of cards</p>
           </div>
           <div className="card">
-            <p>More than</p>
-            <h1>500+</h1>
-            <p>topics to study</p>
+            <img className="display-image" src={creators} alt="creators" />
+            <p>atleast</p>
+            <h3>200+</h3>
+            <p>creators across the globe</p>
           </div>
           <div className="card">
+            <img className="display-image" src={students} alt="students" />
             <p>More than</p>
-            <h1>500+</h1>
-            <p>topics to study</p>
+            <h3>1000+</h3>
+            <p>happy students</p>
           </div>
         </div>
       </div>

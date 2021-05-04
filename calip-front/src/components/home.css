@@ -2,15 +2,15 @@
   display: flex;
   justify-content: center;
   text-align: center;
-  /* align-items: center; */
-  width: 100vw;
-  height: 100vh;
+  align-items: center;
+  /* width: 100vw;
+  height: 100vh; */
   flex-direction: column;
 }
 .home-hero {
   background-image: url(../images/Imgbg.jpg);
   width: 100vw;
-  height: 70vh;
+  height: 500px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -32,10 +32,10 @@
         backgroundrepeat: "no-repeat", */
 }
 .home-title {
-  font-size: 48px;
+  font-size: 32px;
 }
 .home-about {
-  font-size: 32px;
+  font-size: 28px;
   margin: 20px 150px;
   padding: 10px 250px;
 }
@@ -72,6 +72,7 @@ button:hover {
   transform: translateY(-50px);
   padding: 20px;
   width: 250px;
+  height: 250px;
   background-color: #fff;
   border-radius: 30px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);

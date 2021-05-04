@@ -1,7 +1,7 @@
 .login {
   display: flex;
-  width: 100vw;
-  height: 100vh;
+  /* width: 100vw;
+  height: 100vh; */
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -14,7 +14,7 @@
   background-color: #05299e;
   border: #05299e 2px solid;
   width: 500px;
-  height: 90vh;
+  height: 90% !important;
 }
 .loginimage {
   height: 500px;
@@ -28,16 +28,16 @@
 
   border: #05299e 2px solid;
   width: 500px;
-  height: 90vh;
+  height: 90% !important;
   color: #05299e !important;
 }
 label {
   color: #05299e !important;
   text-align: left;
 }
-form h3 {
+h3 {
   text-align: center;
-  transform: translateY(5px);
+  transform: translateY(5px) !important;
   margin-top: 25px;
 }
 .form-control {
@@ -47,12 +47,11 @@ form h3 {
 }
 input {
   background-color: #fff !important;
-  width: 350px;
 }
 .login-button {
   transform: translateX(-50px);
   /* transform: translateY(25px); */
-  margin-top: 40px;
+  margin-top: 10px !important;
 }
 .switch {
   color: black;

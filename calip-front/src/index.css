@@ -42,13 +42,13 @@ html,
    
 }*/
 
-/* .auth-inner {
+.auth-inner {
   display: flex;
   justify-content: center;
   flex-direction: column;
 
   align-items: center;
 
-  min-width: 100vw;
-  min-height: 100vh;
-} */
+  /* min-width: 100vw;
+  min-height: 100vh; */
+}

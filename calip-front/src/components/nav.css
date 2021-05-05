@@ -4,7 +4,7 @@
 .navbar {
   color: #fbf5f3 !important;
   padding: 25px 100px;
-  background-color: #05299e !important;
+  background-color: #29395a !important;
   font-size: 25px;
   width: 100vw;
   height: 65px;
@@ -41,7 +41,7 @@
   color: #000 !important;
 }
 .nav-item:hover {
-  background-color: #05299e;
+  background-color: #29395a;
 
   transition: all 0.2s;
   box-shadow: 0 0 20px #fff;

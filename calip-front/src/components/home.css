@@ -8,9 +8,10 @@
   flex-direction: column;
 }
 .home-hero {
-  background-image: url(../images/Imgbg.jpg);
+  /* background-image: url(../images/Imgbg.jpg); */
+  background-color: #29395a;
   width: 100vw;
-  min-height: 500px !important;
+  min-height: 400px !important;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -50,16 +51,17 @@
 button {
   margin: 5px 10px;
   padding: 5px 10px;
-  width: 200px;
+  width: 100px;
   height: 50px;
   border-radius: 50px;
-  background-color: #05299e;
+  background-color: #0991ff;
   box-shadow: inset;
   border: none;
-  box-shadow: 0 0 5px #05299e;
+  box-shadow: 0 0 5px #29395a;
+  font-size: 16px;
 }
 button:hover {
-  background-color: #05299e;
+  background-color: #29395a;
 
   transition: all 0.2s;
   box-shadow: 0 0 20px #fff;
@@ -79,7 +81,7 @@ button:hover {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  color: #05299e;
+  color: #29395a;
   margin: 0px 10px;
   transform: translateY(-100px);
   padding: 20px;
@@ -88,9 +90,13 @@ button:hover {
   background-color: #fff;
   border-radius: 30px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition: 0.5s all ease;
+}
+.card:hover {
+  transform: translateY(-130px);
 }
 .card p {
-  color: #05299e;
+  color: #29395a;
   font-size: 18px;
   padding: 0px;
   margin: 0px;

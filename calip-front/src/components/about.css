@@ -1,5 +1,5 @@
 .about h4 {
-  color: #05299e;
+  color: #29395a;
   float: left !important;
 
   width: 80vw;
@@ -7,12 +7,12 @@
   font-size: 28px;
 }
 p {
-  color: #05299e;
+  color: #29395a;
   padding: 0px 40px;
   font-size: 18px;
 }
 .about {
-  border-bottom: 2px solid #05299e;
+  border-bottom: 2px solid #29395a;
   padding: 50px;
   margin: 10px 50px;
 }

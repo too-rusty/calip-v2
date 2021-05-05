@@ -19,11 +19,12 @@
   height: 30px;
   font-size: 16px;
   margin: 5px;
+
   transform: translateY(-25px);
 }
 @media (max-width: 760px) {
   .mycards {
-    border: 2px solid #05299e;
+    border: 2px solid #29395a;
     width: 180px;
     height: 100px;
     margin: 12.5px 00px 12.5px 20px;

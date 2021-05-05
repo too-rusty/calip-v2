@@ -11,8 +11,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #05299e;
-  border: #05299e 2px solid;
+  background-color: #29395a;
+  border: #29395a 2px solid;
   width: 500px;
   height: 70vh;
 }
@@ -26,13 +26,13 @@
   justify-content: center;
   align-items: center;
 
-  border: #05299e 2px solid;
+  border: #29395a 2px solid;
   width: 500px;
   height: 70vh;
-  color: #05299e !important;
+  color: #29395a !important;
 }
 label {
-  color: #05299e !important;
+  color: #29395a !important;
   text-align: left;
 }
 form h3 {
@@ -41,7 +41,7 @@ form h3 {
   margin-top: 25px;
 }
 .form-control {
-  border-bottom: 2px solid #05299e !important;
+  border-bottom: 2px solid #29395a !important;
   margin: 0px;
   border: none;
 }
@@ -58,7 +58,7 @@ input {
   color: black;
 }
 .switchtext {
-  color: #05299e !important;
+  color: #29395a !important;
 }
 @media (max-width: 760px) {
   .box-1 {

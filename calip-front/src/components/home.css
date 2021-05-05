@@ -32,11 +32,13 @@
         backgroundrepeat: "no-repeat", */
 }
 .home-title {
-  font-size: 28px;
+  font-size: 36px;
+  text-transform: uppercase;
 }
 .home-about {
   font-size: 18px;
-  margin: 20px 50px;
+
+  margin: 20px 100px;
   padding: 10px 100px;
 }
 .home-buttons {

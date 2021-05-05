@@ -69,20 +69,14 @@ class Profile extends React.Component {
         ? []
         : this.state.cards.map((val, key) => {
             return (
-              <div className="box-sc">
-                <div className="card-sc">
-                  <div className="content">
-                    <Card
-                      key={key}
-                      ccid={val.ccid}
-                      title={val.title}
-                      about={val.about}
-                      tags={val.tags}
-                      username={val.username}
-                    />
-                  </div>
-                </div>
-              </div>
+              <Card
+                key={key}
+                ccid={val.ccid}
+                title={val.title}
+                about={val.about}
+                tags={val.tags}
+                username={val.username}
+              />
             );
           });
 
@@ -91,16 +85,17 @@ class Profile extends React.Component {
     if (this.state.editable === true) {
       alldrafts =
         this.state.drafts === null
-          ? []
+          ? {}
           : this.state.drafts.map((val, key) => {
               return (
-                <div className="bookmark">
+                <div className="draft">
                   <Card
                     key={key}
                     ccid={val.ccid}
                     title={val.title}
                     isDraft={true}
                   />
+                  <button className="draft-button">see</button>
                 </div>
               );
             });
@@ -110,7 +105,7 @@ class Profile extends React.Component {
     if (this.state.loggedin === true) {
       bookmarks =
         this.state.bookmarks === null
-          ? []
+          ? {}
           : this.state.bookmarks.map((val, key) => {
               return (
                 // <div className="section-bookmarks">
@@ -130,38 +125,75 @@ class Profile extends React.Component {
     }
 
     view = (
-      <div className>
+      <div>
         <div className="hero-profile">
-          <h3>Hi {this.state.username}</h3>
+          <h4 style={{ color: "#05299e" }}>Hi {this.state.username}</h4>
           <img className="dp" src={diplayPic} alt="display" />
         </div>
 
         <div className="section-hero">
           <div className="bookmarks">
-            <h4>Bookmarked Cards</h4>
-            <div class="scrollbar" id="style-1">
-              <div class="force-overflow">
-                <div className="section-bookmarks">{bookmarks}</div>
-              </div>
+            <div
+              style={{ color: "#05299e", fontSize: "24" }}
+              className="section-heading"
+            >
+              Bookmarked Cards :
             </div>
-          </div>
-          <div className="section-hero">
-            <div className="bookmarks">
-              <h4>Drafts</h4>
-              <div class="scrollbar" id="style-1">
-                <div class="force-overflow">
-                  <div className="section-bookmarks">{alldrafts}</div>
+            {this.state.bookmarks !== null ? (
+              <div class="profile-scrollbar" id="style-1">
+                <div class="profile-force-overflow">
+                  <div className="section-bookmarks">
+                    {bookmarks}
+                    {bookmarks}
+                    {bookmarks}
+                    {bookmarks}
+                    {bookmarks}
+                    {bookmarks}
+                    {bookmarks}
+                  </div>
                 </div>
               </div>
-            </div>
+            ) : (
+              <div>No Bookmarks to show</div>
+            )}
           </div>
-          <div className="section-hero">
-            <h4>My Cards</h4>
-            <div class="scrollbar" id="style-1">
-              <div class="force-overflow">
-                <div className="section-cards">{allcards}</div>
-              </div>
+        </div>
+        <div className="section-hero">
+          <div className="drafts">
+            <div
+              style={{ color: "#05299e", fontSize: "24" }}
+              className="section-heading"
+            >
+              Drafts :
             </div>
+            {this.state.drafts !== null ? (
+              <div class="profile-scrollbar" id="style-1">
+                <div class="profile-force-overflow">
+                  <div className="section-drafts">{alldrafts}</div>
+                </div>
+              </div>
+            ) : (
+              <div>No Drafts to show</div>
+            )}
+          </div>
+        </div>
+        <div className="section-hero">
+          <div className="profilecards">
+            <div
+              style={{ color: "#05299e", fontSize: "24" }}
+              className="section-heading"
+            >
+              Cards
+            </div>
+            {this.state.drafts !== null ? (
+              <div class="profile-scrollbar" id="style-1">
+                <div class="profile-force-overflow">
+                  <div className="section-cards">{allcards}</div>
+                </div>
+              </div>
+            ) : (
+              <div></div>
+            )}
           </div>
         </div>
       </div>
@@ -189,9 +221,9 @@ class Card extends React.Component {
     let view = (
       <div>
         <Link to={link}>
-          <div>ccid : {ccid}</div>
-
-          <div>title : {title}</div>
+          <div style={{ color: "#fff !important" }}>{ccid}</div>
+          <div>{title}</div>
+          <div className="user">{by_user}</div>
 
           {/* <div>
             <div className="sc-heading">{title}</div>

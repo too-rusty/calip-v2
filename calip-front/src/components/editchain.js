@@ -351,6 +351,7 @@ class EditView extends React.Component {
             <div>
               <label>Title:</label>
               <input
+               style={{ color: "black" }}
                 name="title"
                 type="text"
                 placeholder="Title"
@@ -361,6 +362,7 @@ class EditView extends React.Component {
             <div>
               <label>About:</label>
               <input
+               style={{ color: "black" }}
                 name="about"
                 type="text"
                 placeholder="About"
@@ -371,6 +373,7 @@ class EditView extends React.Component {
             <div>
               <label>Tags: </label>
               <input
+                style={{ color: "black" }}
                 name="tag_str"
                 type="text"
                 value={this.state.tag_str}
@@ -399,9 +402,7 @@ class EditView extends React.Component {
           </div>
           <div className="cards-create">
             <div>
-              <div style={{ color: "#fbf3f5" }}>
-                The first card will be the about card
-              </div>
+              <div  style={{ color: "#05299e" }}>The first card will be the about card</div>
               {cidx !== null ? (
                 <div>
                   {/* <div><PreviewCard card={this.state.cards[cidx]}/></div> */}
@@ -414,11 +415,11 @@ class EditView extends React.Component {
                   </div>
                 </div>
               ) : (
-                <div style={{ color: "#fbf3f5" }}> NO PREVIEW </div>
+                <div  style={{ color: "#05299e" }}> NO PREVIEW </div>
               )}{" "}
             </div>
             <div>
-              <div style={{ color: "#fbf3f5" }}>All cards</div>
+              <div style={{ color: "#05299e" }}>All cards</div>
               <div class="scrollbar" id="style-1">
                 <div class="force-overflow">
                   <div>{cards}</div>

@@ -248,11 +248,9 @@ class Create extends React.Component {
               onChange={this.changeHandler.bind(this)}
             />
           </div>
-          <div>
-            <p>
-              This site uses markdown to render your ideas, new to markdown?
-              check here {markdown_link}
-            </p>
+          <div className="info-link">
+            This site uses markdown to render your ideas, new to markdown? check
+            here {markdown_link}
           </div>{" "}
         </div>
         <div className="buttons">
@@ -269,7 +267,7 @@ class Create extends React.Component {
         </div>
         <div className="cards-create">
           <div>
-            <div style={{ color: "#fbf3f5" }}>
+            <div style={{ color: "#05299e" }}>
               The first card will be the about card
             </div>
             {cidx !== null ? (
@@ -284,14 +282,14 @@ class Create extends React.Component {
                 </div>
               </div>
             ) : (
-              <div style={{ color: "#fbf3f5" }}> NO PREVIEW </div>
+              <div style={{ color: "#05299e" }}> NO PREVIEW </div>
             )}{" "}
           </div>
           <div>
-            <div style={{ color: "#fbf3f5" }}>All cards</div>
+            <div style={{ color: "#05299e" }}>All cards</div>
             <div class="scrollbar" id="style-1">
               <div class="force-overflow">
-                <div>{cards}</div>
+                <div className="shortview">{cards}</div>
               </div>
             </div>
           </div>

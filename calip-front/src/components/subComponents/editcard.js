@@ -2,22 +2,24 @@ import React from "react";
 import ReactPlayer from "react-player";
 import "./editcard.css";
 
-var inputStyle = {
-  width: "400px",
-  height: "50vh",
-  //   marginLeft: "auto",
-  //   marginRight: "auto",
-  padding: "10px",
-};
-var outputStyle = {
-  width: "400px",
-  height: "50vh",
-  color: "black !important",
-  backgroundColor: "#DCDCDC",
-  //   marginLeft: "auto",
-  //   marginRight: "auto",
-  padding: "10px",
-};
+// var inputStyle = {
+//   width: "350px",
+//   height: "70vh",
+//   //   marginLeft: "auto",
+//   //   marginRight: "auto",
+//   padding: "10px",
+//   boxshadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+// };
+
+// var outputStyle = {
+//   width: "350px",
+//   height: "70vh",
+//   color: "black !important",
+//   backgroundColor: "#DCDCDC",
+//   //   marginLeft: "auto",
+//   //   marginRight: "auto",
+//   padding: "10px",
+// };
 
 let marked = require("marked");
 
@@ -44,8 +46,8 @@ class EditCard extends React.Component {
         <div className="edit-cardView">
           <div className="in">
             <textarea
-              className="input"
-              style={inputStyle}
+              className="inputStyle"
+              // style={inputStyle}
               value={markdown}
               onChange={(e) => {
                 this.updateMarkdown(null, e.target.value);
@@ -58,7 +60,8 @@ class EditCard extends React.Component {
             <div class="view-scrollbar" id="view-style-1">
               <div class="force-overflow">
                 <div
-                  style={outputStyle}
+                  className="outputStyle"
+                  // style={outputStyle}
                   dangerouslySetInnerHTML={{
                     __html: marked(markdown),
                   }}

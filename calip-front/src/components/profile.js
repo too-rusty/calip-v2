@@ -85,7 +85,7 @@ class Profile extends React.Component {
     if (this.state.editable === true) {
       alldrafts =
         this.state.drafts === null
-          ? {}
+          ? []
           : this.state.drafts.map((val, key) => {
               return (
                 <div className="draft">
@@ -105,7 +105,7 @@ class Profile extends React.Component {
     if (this.state.loggedin === true) {
       bookmarks =
         this.state.bookmarks === null
-          ? {}
+          ? []
           : this.state.bookmarks.map((val, key) => {
               return (
                 // <div className="section-bookmarks">
@@ -185,7 +185,7 @@ class Profile extends React.Component {
             >
               Cards
             </div>
-            {this.state.drafts !== null ? (
+            {this.state.cards !== null ? (
               <div class="profile-scrollbar" id="style-1">
                 <div class="profile-force-overflow">
                   <div className="section-cards">{allcards}</div>

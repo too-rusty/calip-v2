@@ -224,6 +224,7 @@ class Create extends React.Component {
           <div>
             <label>Title:</label>
             <input
+              style={{ color: "black" }}
               name="title"
               type="text"
               placeholder="Title"
@@ -233,6 +234,7 @@ class Create extends React.Component {
           <div>
             <label>About:</label>
             <input
+              style={{ color: "black" }}
               name="about"
               type="text"
               placeholder="About"
@@ -242,6 +244,7 @@ class Create extends React.Component {
           <div>
             <label>Tags: </label>
             <input
+              style={{ color: "black" }}
               name="tag_str"
               type="text"
               placeholder="enter comma separated values (atmost 5)"

@@ -18,7 +18,7 @@ import Cookies from "universal-cookie";
 import Categories from "./components/categories";
 import About from "./components/about";
 import Protips from "./components/protips";
-import Read from "./components/ReadMore";
+import about from "./components/ReadMore";
 
 // I had to use credentials: 'include' on the client side and CORS_ALLOW_CREDENTIALS = True
 // in my django app. Also setting my cookie with 127.0.0.1
@@ -140,8 +140,8 @@ class App extends React.Component {
                 <Route exact path="/cc/:ccid" component={Cchain} />
                 <Route exact path="/cc" component={CchainSearch} />
                 <Route exact path="/categories" component={Categories} />
-                <Route exact path="/about" component={About} />
-                <Route exact path="/Read" component={Read} />
+                <Route exact path="/read" component={About} />
+                <Route exact path="/About" component={about} />
                 <Route exact path="/protips" component={Protips} />
                 <Redirect from="/reloadcc" to="/cc" />
                 {/* <Route exact path="/profile" component={() => <Profile token = {this.state.token} />} /> */}

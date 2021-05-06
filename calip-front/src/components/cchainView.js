@@ -64,10 +64,7 @@ class CChainView extends React.Component {
               </div>
             </div>
           ) : (
-            <div>
-              {" "}
-              <DetailViewCard card={this.state.cc[0]} />
-            </div>
+            <div> NO PREVIEW, click a card to view </div>
           )}
           <div>{cards.length === 0 ? "WOOPS! no card" : ""}</div>
         </div>

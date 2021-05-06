@@ -40,6 +40,7 @@ class Profile extends React.Component {
         console.log("called fetch API and got DATA -> ", res.data);
         if (res.data.username != undefined) {
           this.setState({ ...res.data });
+          console.log("state is set", this.state)
         }
       })
       .catch((error) => {

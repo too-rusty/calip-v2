@@ -67,7 +67,7 @@ class Cchain extends React.Component {
             }
         }
         console.log("config",config)
-        let url = 'http://localhost:8000/cc/' + this.state.ccid.toString()
+        let url = `http://${process.env.REACT_APP_SERVER_URL}/cc/` + this.state.ccid.toString()
         axios.get(url, config)
         .then(
             res => {

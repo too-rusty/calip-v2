@@ -54,33 +54,35 @@ class CChainView extends React.Component {
     // ok so the above is the short version of all the cards
     let cidx = this.state.cidx;
     return (
-      <div class="view-section">
-        <div className="full-view">
-          {cidx !== null ? (
-            <div>
-              {/* <div><PreviewCard card={this.state.cards[cidx]}/></div> */}
+      <div>
+        <div class="view-section">
+          <div className="full-view">
+            {cidx !== null ? (
               <div>
-                <DetailViewCard card={this.state.cc[cidx]} />
+                {/* <div><PreviewCard card={this.state.cards[cidx]}/></div> */}
+                <div>
+                  <DetailViewCard card={this.state.cc[cidx]} />
+                </div>
+              </div>
+            ) : (
+              <div>
+                {" "}
+                <DetailViewCard card={this.state.cc[0]} />
+              </div>
+            )}
+            <div>{cards.length === 0 ? "WOOPS! no card" : ""}</div>
+          </div>
+          <div className="chain-view">
+            {/* <Scrollbars style={{width:300,height:600,color:"yellow !important" }}
+                 > */}
+            <div class="scrollbar" id="style-1">
+              <div class="force-overflow">
+                <div>{cards}</div>
               </div>
             </div>
-          ) : (
-            <div>
-              {" "}
-              <DetailViewCard card={this.state.cc[0]} />
-            </div>
-          )}
-          <div>{cards.length === 0 ? "WOOPS! no card" : ""}</div>
-        </div>
-        <div className="chain-view">
-          {/* <Scrollbars style={{width:300,height:600,color:"yellow !important" }}
-                 > */}
-          <div class="scrollbar" id="style-1">
-            <div class="force-overflow">
-              <div>{cards}</div>
-            </div>
-          </div>
 
-          {/* </Scrollbars> */}
+            {/* </Scrollbars> */}
+          </div>
         </div>
       </div>
     );
@@ -109,7 +111,7 @@ class DetailViewCard extends React.Component {
         <div className="text-card" style={{ padding: 20 }}>
           {/* fbf5f3  */}
           <Scrollbars
-            style={{ width: 640, height: 540, backgroundColor: "#e8e6a3" }}
+            style={{ width: 500, height: 400, backgroundColor: "#e8e6a3" }}
           >
             <div
               style={{ padding: 20 }}

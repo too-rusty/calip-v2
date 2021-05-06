@@ -33,7 +33,7 @@ class Profile extends React.Component {
       },
     };
     console.log("config", config);
-    let url = "http://localhost:8000/profile/" + this.state.uname;
+    let url = `http://${process.env.REACT_APP_SERVER_URL}/profile/` + this.state.uname;
     axios
       .get(url, config)
       .then((res) => {
@@ -186,7 +186,7 @@ class Profile extends React.Component {
             >
               Cards
             </div>
-            {this.state.drafts !== null ? (
+            {this.state.cards !== null ? (
               <div class="profile-scrollbar" id="style-1">
                 <div class="profile-force-overflow">
                   <div className="section-cards">{allcards}</div>

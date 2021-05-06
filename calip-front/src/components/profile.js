@@ -69,18 +69,24 @@ class Profile extends React.Component {
         ? []
         : this.state.cards.map((val, key) => {
             return (
-              <Card
-                key={key}
-                ccid={val.ccid}
-                title={val.title}
-                about={val.about}
-                tags={val.tags}
-                username={val.username}
-              />
+              <div className="card-sc">
+                <div className="content">
+                  <Card
+                    key={key}
+                    ccid={val.ccid}
+                    title={val.title}
+                    about={val.about}
+                    tags={val.tags}
+                    username={val.username}
+                  />
+                </div>
+              </div>
             );
           });
 
     let alldrafts = [];
+    let ccid = this.props.ccid;
+    // let link = "/cc/" + ccid.toString() + "/edit";
 
     if (this.state.editable === true) {
       alldrafts =
@@ -95,7 +101,9 @@ class Profile extends React.Component {
                     title={val.title}
                     isDraft={true}
                   />
+                  {/* <Link to={link}> */}{" "}
                   <button className="draft-button">see</button>
+                  {/* </Link> */}
                 </div>
               );
             });
@@ -188,7 +196,7 @@ class Profile extends React.Component {
             {this.state.cards !== null ? (
               <div class="profile-scrollbar" id="style-1">
                 <div class="profile-force-overflow">
-                  <div className="section-cards">{allcards}</div>
+                  <div className="allcards">{allcards}</div>
                 </div>
               </div>
             ) : (

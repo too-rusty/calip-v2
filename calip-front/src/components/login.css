@@ -50,7 +50,7 @@ input {
   width: 350px;
 }
 .login-button {
-  transform: translateX(-50px);
+  transform: translateX(70px);
   /* transform: translateY(25px); */
   margin-top: 75px;
 }

@@ -4,6 +4,7 @@ import Cookies from "universal-cookie";
 import { Link } from "react-router-dom";
 import { Redirect } from "react-router";
 import queryString from "query-string";
+import { FaSearch } from "react-icons/fa";
 
 import "./cchainsearch.css";
 
@@ -125,28 +126,27 @@ class CchainSearch extends React.Component {
     let search_bar = (
       <div>
         <label></label>
-        <input
-          className="search-bar"
-          name="search_str"
-          type="text"
-          placeholder="search by tag"
-          onChange={this.changeHandler.bind(this)}
-        />
+        <div className="buscar-caja">
+          <input
+            className="buscar-txt"
+            name="search_str"
+            type="text"
+            placeholder="search by tag"
+            onChange={this.changeHandler.bind(this)}
+          />
+          <Link
+            className="buscar-btn"
+            onClick={this.search.bind(this)}
+            to={`/cc?tag=${
+              this.state.search_str === null
+                ? this.state.prev_tag
+                : this.state.search_str
+            }`}
+          >
+            <FaSearch />
+          </Link>
+        </div>
 
-        <Link
-          className="search-button"
-          onClick={this.search.bind(this)}
-          to={`/cc?tag=${
-            this.state.search_str === null
-              ? this.state.prev_tag
-              : this.state.search_str
-          }`}
-        >
-          <button type="submit" className={"button mt-20"}>
-            {" "}
-            search{" "}
-          </button>
-        </Link>
         {/* <button onClick={this.search.bind(this)}>search</button> */}
       </div>
     );
@@ -164,18 +164,16 @@ class CchainSearch extends React.Component {
     } else {
       allcards = this.state.summary.map((val, key) => {
         return (
-          <div className="box-sc">
-            <div className="card-sc">
-              <div className="content">
-                <Card
-                  key={key}
-                  ccid={val.ccid}
-                  title={val.title}
-                  about={val.about}
-                  tags={val.tags}
-                  username={val.username}
-                />
-              </div>
+          <div className="card-sc">
+            <div className="content">
+              <Card
+                key={key}
+                ccid={val.ccid}
+                title={val.title}
+                about={val.about}
+                tags={val.tags}
+                username={val.username}
+              />
             </div>
           </div>
         );
@@ -185,15 +183,22 @@ class CchainSearch extends React.Component {
     return (
       <div>
         <div className="hero">
-          <div>{search_bar}</div>
-
-          <div>
+          <div className="searchhero">
+            <div className="searchbar">
+              <div style={{ color: "white" }}>
+                Looking for Something? Search now to get the best results
+              </div>
+              <div>{search_bar}</div>
+            </div>
+          </div>
+          <div className="search-tag">
             {this.state.search_tag !== null ? (
-              <div> {this.state.search_tag}</div>
+              <div className="categoryTag"> {this.state.search_tag}</div>
             ) : (
               <div></div>
             )}
           </div>
+
           <div className="allcards">{allcards}</div>
           <div>{show_all_button}</div>
         </div>
@@ -232,7 +237,7 @@ class Card extends React.Component {
     let about = this.props.about;
     let tags = this.props.tags.map((val, key) => {
       return (
-        <div className="tags">
+        <div className="categoryTag">
           <Tag val={val} key={key} />
         </div>
       );
@@ -249,12 +254,11 @@ class Card extends React.Component {
       <Link to={"/cc/" + ccid.toString()}>
         <div>
           <div className="main-heading">
-            <div>
+            <div className="card-text">
               <div className="sc-heading">{title}</div>
-              <div className="user">-- {by_user}</div>
+              <div className="sc-user">-- {by_user}</div>
             </div>
-            <div className="sc-tags"> {tags}</div>{" "}
-            {/* use TAG group here maybe */}
+            <div> {tags}</div> {/* use TAG group here maybe */}
           </div>
         </div>
       </Link>

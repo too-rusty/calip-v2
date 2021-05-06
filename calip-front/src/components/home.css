@@ -67,6 +67,7 @@ button:hover {
   box-shadow: 0 0 20px #fff;
   font-size: 17px;
   border-radius: 30px;
+  color: #fff;
 }
 .cards {
   min-height: 400px;

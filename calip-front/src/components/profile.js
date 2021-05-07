@@ -33,7 +33,7 @@ class Profile extends React.Component {
       },
     };
     console.log("config", config);
-    let url = "http://localhost:8000/profile/" + this.state.uname;
+    let url = `http://${process.env.REACT_APP_SERVER_URL}/profile/` + this.state.uname;
     axios
       .get(url, config)
       .then((res) => {

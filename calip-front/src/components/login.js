@@ -40,7 +40,7 @@ class Login extends React.Component {
     //     }
     // }
     axios
-      .post("http://localhost:8000/login", data)
+      .post(`http://${process.env.REACT_APP_SERVER_URL}/login`, data)
       .then((res) => {
         console.log("USERNAMEEEE RETURNED", res.data); // only token is being returned
         if (res.data.token != undefined) {

@@ -53,7 +53,7 @@ class CchainSearch extends React.Component {
 
   apiCall() {
     console.log("BEFORE API CALL TAG IS ", this.state.search_tag);
-    let url = "http://localhost:8000/search";
+    let url = `http://${process.env.REACT_APP_SERVER_URL}/search`;
     if (this.state.search_tag !== null) {
       url += "/tag/" + this.state.search_tag + "?page=" + this.state.page_no;
     } else {

@@ -2,8 +2,6 @@ package db
 
 import (
 	"calipv2/schema"
-	"calipv2/utils/console"
-	"encoding/json"
 	"log"
 
 	_ "github.com/go-sql-driver/mysql"
@@ -18,11 +16,15 @@ func Load() {
 	db = db.Debug()
 	defer db.Close()
 
-	if err = db.DropTableIfExists(&schema.User{}, &schema.Cc{}, &schema.Tag{}).Error; err != nil {
-		log.Fatal(err)
-	}
+	// if err = db.DropTableIfExists(&schema.User{}, &schema.Cc{}, &schema.Tag{}).Error; err != nil {
+	// 	log.Fatal(err)
+	// }
 
-	if err = db.DropTableIfExists(&schema.Bookmark{}, &schema.Category{}).Error; err != nil {
+	// if err = db.DropTableIfExists(&schema.Bookmark{}, &schema.Category{}).Error; err != nil {
+	// 	log.Fatal(err)
+	// }
+
+	if err = db.DropTableIfExists(&schema.Category{}).Error; err != nil {
 		log.Fatal(err)
 	}
 
@@ -43,46 +45,48 @@ func Load() {
 		}
 	}
 
-	users, err := getUserData()
-	if err != nil {
-		log.Fatal(err)
-	}
-	for _, user := range users {
-		err = db.Model(&schema.User{}).Create(&user).Error
-		if err != nil {
-			log.Fatal(err)
-		}
+	// USER DATA NOT NEEDED IN PROD, this is temp data
 
-		console.Pretty(user)
-	}
+	// users, err := getUserData()
+	// if err != nil {
+	// 	log.Fatal(err)
+	// }
+	// for _, user := range users {
+	// 	err = db.Model(&schema.User{}).Create(&user).Error
+	// 	if err != nil {
+	// 		log.Fatal(err)
+	// 	}
+
+	// 	console.Pretty(user)
+	// }
 
 	// load the cardchain schema into the db
-	var ccs []schema.Cc
-	ccs, err = getCcData()
-	if err != nil {
-		log.Fatal(err)
-	}
-	for _, cc := range ccs {
-		err = db.Model(&schema.Cc{}).Create(&cc).Error
-		if err != nil {
-			log.Fatal(err)
-		}
-		//POPULATE tags too
-		var tags []string
-		_ = json.Unmarshal([]byte(cc.Tags), &tags)
-		for _, tag := range tags {
-			toPush := schema.Tag{
-				Tag:  tag,
-				Ccid: cc.ID,
-			}
-			err = db.Model(&schema.Tag{}).Create(&toPush).Error
-			if err != nil {
-				log.Println("COULD not PUSH", toPush, " err ", err)
-			}
-		}
-		//-------
-		console.Pretty(cc)
-	}
+	// var ccs []schema.Cc
+	// ccs, err = getCcData()
+	// if err != nil {
+	// 	log.Fatal(err)
+	// }
+	// for _, cc := range ccs {
+	// 	err = db.Model(&schema.Cc{}).Create(&cc).Error
+	// 	if err != nil {
+	// 		log.Fatal(err)
+	// 	}
+	// 	//POPULATE tags too
+	// 	var tags []string
+	// 	_ = json.Unmarshal([]byte(cc.Tags), &tags)
+	// 	for _, tag := range tags {
+	// 		toPush := schema.Tag{
+	// 			Tag:  tag,
+	// 			Ccid: cc.ID,
+	// 		}
+	// 		err = db.Model(&schema.Tag{}).Create(&toPush).Error
+	// 		if err != nil {
+	// 			log.Println("COULD not PUSH", toPush, " err ", err)
+	// 		}
+	// 	}
+	// 	//-------
+	// 	console.Pretty(cc)
+	// }
 
 	//load the bookmarks in the db
 	//load the tags in the db

@@ -9,8 +9,8 @@ services:
             MYSQL_DATABASE: "calip_db"
         ports:
             - "3305:3306"
-        volumes:
-            - "database_mysql:/var/lib/mysql"
+        # volumes:
+        #     - "database_mysql:/var/lib/mysql"
 
     server:
         build: ./backend
@@ -23,5 +23,5 @@ services:
 
     
 
-volumes:
-    database_mysql: { driver : local }
+# volumes:
+#     database_mysql: { driver : local }

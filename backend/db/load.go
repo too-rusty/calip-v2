@@ -2,6 +2,8 @@ package db
 
 import (
 	"calipv2/schema"
+	"calipv2/utils/console"
+	"encoding/json"
 	"log"
 
 	_ "github.com/go-sql-driver/mysql"
@@ -60,7 +62,7 @@ func Load() {
 		console.Pretty(user)
 	}
 
-	load the cardchain schema into the db
+	// load the cardchain schema into the db
 	var ccs []schema.Cc
 	ccs, err = getCcData()
 	if err != nil {

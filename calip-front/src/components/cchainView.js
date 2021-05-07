@@ -65,12 +65,15 @@ class CChainView extends React.Component {
                 </div>
               </div>
             ) : (
-              <div>
-                {" "}
-                <DetailViewCard card={this.state.cc[0]} />
-              </div>
+              <div>{cards.length === 0 ? "WOOPS! no card" : ""}</div>
+              // CORRECT THIS , WHEN NO CARD
+              
+              // <div>
+              //   {" "}
+              //   <DetailViewCard card={this.state.cc[0]} />
+              // </div>
             )}
-            <div>{cards.length === 0 ? "WOOPS! no card" : ""}</div>
+            
           </div>
           <div className="chain-view">
             {/* <Scrollbars style={{width:300,height:600,color:"yellow !important" }}

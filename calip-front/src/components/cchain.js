@@ -71,7 +71,9 @@ class Cchain extends React.Component {
         if (res.data.ccid != undefined) {
           if (res.data.draft === true) this.setState({ cardchain: "NOTFOUND" });
           else {
-            this.setState({ cardchain: res.data });
+            console.log("OKKKKKKK DATAT IS FCJED", res.data)
+            this.setState({ ...this.state, cardchain: res.data });
+            console.log("this is the cardchain", this.state.cardchain)
           }
         }
       })

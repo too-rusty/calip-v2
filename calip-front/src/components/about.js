@@ -5,7 +5,7 @@ class About extends React.Component {
   render() {
     return (
       <div className="about">
-        <div>
+        <div className="about-div">
           <h4>What is calip ?</h4>
           <p>
             Calip is an idea sharing platform. Users can share ideas, create
@@ -20,7 +20,7 @@ class About extends React.Component {
           </p>
         </div>
 
-        <div>
+        <div className="about-div">
           <h4>Calip for learners</h4>
           <p>
             In a world where attention span is limited and social media is
@@ -33,7 +33,7 @@ class About extends React.Component {
           </p>
         </div>
 
-        <div>
+        <div className="about-div">
           <h4>What is a card chain ?</h4>
           <p>
             Well think youtube playlist but hackable. Card chains are simply
@@ -44,7 +44,7 @@ class About extends React.Component {
           </p>
         </div>
 
-        <div>
+        <div className="about-div">
           <h4>Why would you Create courses on calip ?</h4>
           <p>
             <ol>
@@ -87,7 +87,7 @@ class About extends React.Component {
           </p>
         </div>
 
-        <div>
+        <div className="about-div">
           <h4>Why not youtube, Why calip ?</h4>
           <p>
             Well youtube is a very nice platform where you can upload your
@@ -104,7 +104,7 @@ class About extends React.Component {
           </p>
         </div>
 
-        <div>
+        <div className="about-div">
           <h4>Our Goals</h4>
           <p>
             Make a platform which is a paradise for content creators , who can
@@ -114,7 +114,7 @@ class About extends React.Component {
           </p>
         </div>
 
-        <div>
+        <div className="about-div">
           <h4>Contact and feedback</h4>
           <p>
             I can be reached out at abhish014@gmail.com , any feedback is

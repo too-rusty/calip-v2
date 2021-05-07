@@ -37,7 +37,7 @@ class Home extends React.Component {
               {" "}
               <button>Explore</button>{" "}
             </Link>
-            <Link to="/Read">
+            <Link to="/About">
               {" "}
               <button>Read more</button>{" "}
             </Link>

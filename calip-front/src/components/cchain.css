@@ -1,43 +1,56 @@
 .view-hero {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-gap: 15px;
-  padding: 20px;
-  width: 80vw;
-  border-bottom: 3px solid #29395e;
-}
-.section-1 {
+  background-color: #25395e;
+  width: 100vw;
   display: flex;
   justify-content: center;
-  text-align: left;
-  color: #fff;
-  flex-direction: column;
-  align-items: left;
+  align-items: center;
 }
-.buttons {
-  display: flex;
-
-  align-items: flex-start;
-  flex-direction: column;
-}
-.title {
-  font-size: 40px;
-  color: #29395e;
-}
-.about-view {
-  padding: 10px;
-  font-size: 23px;
-}
-.section-2 {
+.section-1 {
+  width: 80vw;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  color: #fff !important;
+  padding: 50px;
 }
 .profile-photo {
-  max-height: 250px;
-  max-width: 250px;
-  border-radius: 50%;
-  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+}
+.viewtitle {
+  font-size: 20px;
+  font-weight: bold;
   margin: 10px;
+  border-bottom: 2px solid #fff;
+}
+.userSection a {
+  display: flex;
+  color: #fff !important;
+  flex-direction: row;
+}
+.userSection {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 250px;
+
+  flex-direction: row;
+}
+
+Link p {
+  color: #fff !important;
+}
+.viewinfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.info {
+  width: 80vw;
+  padding: 30px;
+}
+.about-view {
+  font-size: 16px;
 }

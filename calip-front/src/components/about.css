@@ -12,7 +12,13 @@ p {
   font-size: 18px;
 }
 .about {
+  display: flex;
+  flex-direction: column;
   border-bottom: 2px solid #29395a;
   padding: 50px;
   margin: 10px 50px;
+}
+.about-div {
+  display: flex;
+  flex-direction: column;
 }

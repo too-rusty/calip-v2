@@ -1,6 +1,13 @@
 version: "3.8"
 
 services:
+    client:
+        build: ./calip-front
+        working_dir: /app
+        ports:
+          - 80:80
+        depends_on:
+          - server
     db_service:
         image: mysql
         container_name: "calip_db"

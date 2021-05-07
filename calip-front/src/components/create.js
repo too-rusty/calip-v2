@@ -127,7 +127,7 @@ class Create extends React.Component {
     };
     // MAY RETURN INVALID TOKEN , so handle that too
     axios
-      .post("http://localhost:8000/cc/create", data, config)
+      .post(`http://${process.env.REACT_APP_SERVER_URL}/cc/create`, data, config)
       .then((res) => {
         console.log("called CREATE API", res.data);
         if (res.data.ccid != undefined) {
@@ -159,7 +159,7 @@ class Create extends React.Component {
     };
 
     axios
-      .post("http://localhost:8000/cc/create", data, config)
+      .post(`http://${process.env.REACT_APP_SERVER_URL}/cc/create`, data, config)
       .then((res) => {
         console.log("called CREATE API", res.data);
         if (res.data.ccid != undefined) {

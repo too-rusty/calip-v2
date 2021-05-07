@@ -19,7 +19,7 @@ class Categories extends React.Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:8000/category")
+      .get(`http://${process.env.REACT_APP_SERVER_URL}/category`)
       .then((res) => {
         console.log("called category API", res.data);
         this.setState({ data: res.data });

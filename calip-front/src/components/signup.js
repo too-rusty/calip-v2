@@ -42,7 +42,7 @@ class Signup extends React.Component {
       },
     };
     axios
-      .post("http://localhost:8000/signup", data)
+      .post(`http://${process.env.REACT_APP_SERVER_URL}/signup`, data)
       .then((res) => {
         console.log(res, "ok", res.status);
       })

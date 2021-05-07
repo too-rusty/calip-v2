@@ -33,7 +33,7 @@ class Cchain extends React.Component {
       ccid: this.state.cardchain.ccid,
       save: this.state.cardchain.bookmarked,
     };
-    let url = "http://localhost:8000/bookmark/createORremove";
+    let url = `http://${process.env.REACT_APP_SERVER_URL}/bookmark/createORremove`;
     axios
       .post(url, JSON.stringify(data), config)
       .then((res) => {
@@ -63,7 +63,7 @@ class Cchain extends React.Component {
       },
     };
     console.log("config", config);
-    let url = "http://localhost:8000/cc/" + this.state.ccid.toString();
+    let url = `http://${process.env.REACT_APP_SERVER_URL}/cc/` + this.state.ccid.toString();
     axios
       .get(url, config)
       .then((res) => {

@@ -102,7 +102,10 @@ class Profile extends React.Component {
                     isDraft={true}
                   />
                   {/* <Link to={link}> */}{" "}
-                  <button className="draft-button">see</button>
+                  {/* let link = <Link to={`/cc?tag=${val}`}>{val}</Link>; */}
+                  <Link to={`/cc/${val.ccid}/edit`}>
+                    <button className="draft-button">see</button>
+                  </Link>
                   {/* </Link> */}
                 </div>
               );
@@ -151,12 +154,6 @@ class Profile extends React.Component {
               <div class="profile-scrollbar" id="style-1">
                 <div class="profile-force-overflow">
                   <div className="section-bookmarks">
-                    {bookmarks}
-                    {bookmarks}
-                    {bookmarks}
-                    {bookmarks}
-                    {bookmarks}
-                    {bookmarks}
                     {bookmarks}
                   </div>
                 </div>

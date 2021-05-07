@@ -90,8 +90,9 @@ func Load() {
 }
 
 func Connect() (*gorm.DB, error) {
+	// 127.0.0.1:3306 , this was previously used as localhost thing
 	db, err := gorm.Open("mysql",
-		"root:@tcp(127.0.0.1:3306)/calip_v2?parseTime=true")
+		"root:@tcp(db_service)/calip_db?parseTime=true")
 	if err != nil {
 		return nil, err
 	}

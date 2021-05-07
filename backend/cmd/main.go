@@ -34,7 +34,7 @@ func listen(PORT int) {
 	cors := handlers.CORS(originsOk, methodsOk, headersOk)
 	//
 	srv := &http.Server{
-		Addr: fmt.Sprintf("localhost:%d", PORT),
+		Addr: fmt.Sprintf("0.0.0.0:%d", PORT),
 		// Good practice to set timeouts to avoid Slowloris attacks.
 		WriteTimeout: time.Second * 15,
 		ReadTimeout:  time.Second * 15,

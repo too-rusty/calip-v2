@@ -135,10 +135,11 @@ class Profile extends React.Component {
             });
     }
 
+    let Hi = this.state.editable ? "Hi" : ""
     view = (
       <div>
         <div className="hero-profile">
-          <h4 style={{ color: "#05299e" }}>Hi {this.state.username}</h4>
+          <h4 style={{ color: "#05299e" }}>{Hi} {this.state.username}</h4>
           <img className="dp" src={diplayPic} alt="display" />
         </div>
 

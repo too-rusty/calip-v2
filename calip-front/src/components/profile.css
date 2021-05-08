@@ -10,6 +10,9 @@
   margin: 0px 50px;
   width: 80vw;
 }
+.prof {
+  min-height: 100vh !important;
+}
 h3 {
   color: #29395a;
 }

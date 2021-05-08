@@ -217,7 +217,7 @@ class Create extends React.Component {
           }
         });
       alert("Your card has been successfully published");
-      this.props.history.push("/cc");
+      this.props.history.push("/");
     }
   }
 

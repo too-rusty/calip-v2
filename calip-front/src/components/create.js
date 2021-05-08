@@ -160,7 +160,6 @@ class Create extends React.Component {
           }
         });
       alert("Your card has been successfully Saved to Drafts");
-      this.props.history.push("/cc");
     }
   }
   publishChain() {

@@ -4,6 +4,7 @@ import { Redirect } from "react-router";
 import Signupimg from "../images/Signup.svg";
 import { Link } from "react-router-dom";
 import "./signup.css";
+import { withRouter } from "react-router-dom";
 
 class Signup extends React.Component {
   constructor(props) {
@@ -56,6 +57,12 @@ class Signup extends React.Component {
       });
 
     console.log(this.state);
+    alert(
+      "Thank You for Signing Up " +
+        this.state.username +
+        ". Please login to continue"
+    );
+    this.props.history.push("/home");
   }
 
   render() {
@@ -116,7 +123,9 @@ class Signup extends React.Component {
                   onChange={this.changeHandler.bind(this)}
                 />
               </div>
+              {/* <Link className="switchtext" to={"../login"}> */}
               <button className="login-button">Sign-Up</button>
+              {/* </Link> */}
             </form>
             <div className="switch">
               Already have an account?{" "}
@@ -131,4 +140,4 @@ class Signup extends React.Component {
   }
 }
 
-export default Signup;
+export default withRouter(Signup);

@@ -63,7 +63,9 @@ class Cchain extends React.Component {
       },
     };
     console.log("config", config);
-    let url = `http://${process.env.REACT_APP_SERVER_URL}/cc/` + this.state.ccid.toString();
+    let url =
+      `http://${process.env.REACT_APP_SERVER_URL}/cc/` +
+      this.state.ccid.toString();
     axios
       .get(url, config)
       .then((res) => {
@@ -71,9 +73,9 @@ class Cchain extends React.Component {
         if (res.data.ccid != undefined) {
           if (res.data.draft === true) this.setState({ cardchain: "NOTFOUND" });
           else {
-            console.log("OKKKKKKK DATAT IS FCJED", res.data)
+            console.log("OKKKKKKK DATAT IS FCJED", res.data);
             this.setState({ ...this.state, cardchain: res.data });
-            console.log("this is the cardchain", this.state.cardchain)
+            console.log("this is the cardchain", this.state.cardchain);
           }
         }
       })
@@ -121,6 +123,7 @@ class Cchain extends React.Component {
       view = <div>No card</div>;
     } else {
       let cc = this.state.cardchain;
+      let tags = cc.tags;
       view = (
         <div>
           <div className="view-hero">
@@ -180,7 +183,9 @@ class Cchain extends React.Component {
             <div className="info">
               <div>DESCRIPTION</div>
               <div className="about-view"> {cc.about}</div>
-              <div className="categoryTag">{cc.tags} </div>
+              {tags.map((tag) => (
+                <div className="categoryTag">{tag} </div>
+              ))}
             </div>
           </div>
 

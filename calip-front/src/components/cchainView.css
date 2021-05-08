@@ -5,7 +5,7 @@
 .full-view {
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   padding: 25px;
 }
 .card-details {
@@ -22,6 +22,10 @@
     width:600px;
     height:500px
 }*/
+.text-card {
+  margin: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 .short-card {
   display: flex;
   border-radius: 15px;

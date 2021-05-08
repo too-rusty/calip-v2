@@ -67,7 +67,7 @@ class CChainView extends React.Component {
             ) : (
               <div>{cards.length === 0 ? "WOOPS! no card" : ""}</div>
               // CORRECT THIS , WHEN NO CARD
-              
+
               // <div>
               //   {" "}
               //   <DetailViewCard card={this.state.cc[0]} />
@@ -103,17 +103,10 @@ class DetailViewCard extends React.Component {
     let link = this.props.card.link;
     return (
       <div className="card-details">
-        {isVidCard ? (
-          <div className="vdo-card">
-            <ReactPlayer url={link} controls={true} />
-          </div>
-        ) : (
-          <div></div>
-        )}
         <div className="text-card" style={{ padding: 20 }}>
           {/* fbf5f3  */}
           <Scrollbars
-            style={{ width: 500, height: 400, backgroundColor: "#e8e6a3" }}
+            style={{ width: 500, height: 400, backgroundColor: "#fff" }}
           >
             <div
               style={{ padding: 20 }}
@@ -123,6 +116,13 @@ class DetailViewCard extends React.Component {
             ></div>
           </Scrollbars>
         </div>
+        {isVidCard ? (
+          <div className="vdo-card">
+            <ReactPlayer url={link} controls={true} />
+          </div>
+        ) : (
+          <div style={{ height: 20 }}></div>
+        )}
       </div>
     );
   }

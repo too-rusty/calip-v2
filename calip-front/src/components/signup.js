@@ -51,6 +51,7 @@ class Signup extends React.Component {
         if (error.response) {
           console.log(error.response.data);
           this.setState({ message: error.response.data.error });
+          alert(this.state.message + ". Please Try Again");
         } else {
           console.log("Show error notification!");
         }

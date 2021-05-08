@@ -28,9 +28,9 @@ class Home extends React.Component {
         <div className="home-hero">
           <div className="home-title">Calip</div>
           <div className="home-about">
-            Calip is a data aggregation platform made for students , experts
-            upload necessary information which is easily accesible to the
-            students
+            Calip is a data aggregation platform made for students , creators
+            'can easily bundle' and share their ideas and experiences with
+            everyone which is accesible to students across the globe
           </div>
           <div className="home-buttons">
             <Link to="/cc">

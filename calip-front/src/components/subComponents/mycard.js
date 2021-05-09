@@ -17,7 +17,7 @@ class MyCard extends React.Component {
     return (
       <div className="mycards">
         <div
-          style={{ color: "white" }}
+          style={{ color: "white", padding: 5 }}
           dangerouslySetInnerHTML={{
             __html: marked(content.substr(0, 5) + "..."),
           }}

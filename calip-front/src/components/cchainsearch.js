@@ -237,7 +237,7 @@ class Card extends React.Component {
     let about = this.props.about;
     let tags = this.props.tags.map((val, key) => {
       return (
-        <div className="categoryTag">
+        <div className="categoryTag"> 
           <Tag val={val} key={key} />
         </div>
       );

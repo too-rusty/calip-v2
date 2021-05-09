@@ -17,7 +17,7 @@ var outputStyle = {
 class CChainView extends React.Component {
   constructor(props) {
     super(props);
-    let startIdx = this.props.startIdx
+    let startIdx = this.props.startIdx;
     this.state = {
       cc: this.props.chain.content, // the actual card chain content
       cidx: startIdx == 0 ? startIdx : null,
@@ -104,13 +104,15 @@ class DetailViewCard extends React.Component {
     let link = this.props.card.link;
     return (
       <div className="card-details">
-        <div className="text-card" style={{ padding: 20 }}>
+        <div className="text-card">
           {/* fbf5f3  */}
           <Scrollbars
-            style={{ width: 500, height: 400, backgroundColor: "#fff" }}
+            style={{ width: 600, height: 500, backgroundColor: "#fff" }}
           >
             <div
-              style={{ padding: 20 }}
+              style={{
+                padding: 10,
+              }}
               dangerouslySetInnerHTML={{
                 __html: marked(markdown),
               }}

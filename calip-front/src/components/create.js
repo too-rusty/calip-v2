@@ -131,8 +131,8 @@ class Create extends React.Component {
     } else {
       let data = JSON.stringify(this.formData(true));
       let token = this.props.token;
-      console.log("data before sending", data);
-      console.log("token before sending", token);
+      // console.log("data before sending", data);
+      // console.log("token before sending", token);
       const config = {
         headers: {
           token: token,
@@ -150,6 +150,7 @@ class Create extends React.Component {
           console.log("called CREATE API", res.data);
           if (res.data.ccid != undefined) {
             this.setState({ ccid: res.data.ccid });
+            alert("Your card has been successfully Saved to Drafts");
           }
         })
         .catch((error) => {
@@ -159,7 +160,6 @@ class Create extends React.Component {
             console.log("Show error notification!");
           }
         });
-      alert("Your card has been successfully Saved to Drafts");
     }
   }
   publishChain() {
@@ -205,6 +205,8 @@ class Create extends React.Component {
           console.log("called CREATE API", res.data);
           if (res.data.ccid != undefined) {
             this.setState({ ccid: res.data.ccid });
+            alert("Your card has been successfully published");
+            this.props.history.push("/cc");
           }
         })
         .catch((error) => {
@@ -216,8 +218,6 @@ class Create extends React.Component {
             console.log("Show error notification!");
           }
         });
-      alert("Your card has been successfully published");
-      this.props.history.push("/");
     }
   }
 
@@ -233,6 +233,9 @@ class Create extends React.Component {
   render() {
     // if logout then redirect
     if (this.props.token === "null") {
+      alert(
+        "Please login to create."
+      );
       return <Redirect to={"/login"} />;
     }
 

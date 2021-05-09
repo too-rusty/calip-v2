@@ -17,9 +17,10 @@ var outputStyle = {
 class CChainView extends React.Component {
   constructor(props) {
     super(props);
+    let startIdx = this.props.startIdx
     this.state = {
       cc: this.props.chain.content, // the actual card chain content
-      cidx: null,
+      cidx: startIdx == 0 ? startIdx : null,
     };
     console.log("cchainview content", this.cc);
   }

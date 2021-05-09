@@ -170,6 +170,7 @@ class EditView extends React.Component {
           console.log("called CREATE API", res.data);
           if (res.data.ccid != undefined) {
             this.setState({ ccid: res.data.ccid });
+            alert("Your draft has ben successfully saved");
           }
         })
         .catch((error) => {
@@ -182,7 +183,7 @@ class EditView extends React.Component {
             console.log("Show error notification!");
           }
         });
-      alert("Your draft has ben successfully saved");
+      
     }
     //saves as draft
   }
@@ -225,6 +226,8 @@ class EditView extends React.Component {
           console.log("called CREATE API", res.data);
           if (res.data.ccid != undefined) {
             this.setState({ ccid: res.data.ccid });
+            alert("Your card has been successfully Edited");
+            this.props.history.push("/cc");
           }
           // console.log("USERNAMEEEE",res.data) // only token is being returned
           // // localStorage.setItem('token',res.data.token)
@@ -242,8 +245,7 @@ class EditView extends React.Component {
             console.log("Show error notification!");
           }
         });
-      alert("Your card has been successfully Edited");
-      this.props.history.push("/");
+      
     }
     // e.preventDefault()
     //publishes the chain

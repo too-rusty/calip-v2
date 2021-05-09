@@ -42,10 +42,11 @@ class Signup extends React.Component {
         return status >= 200 && status < 500;
       },
     };
+
     axios
       .post(`http://${process.env.REACT_APP_SERVER_URL}/signup`, data)
       .then((res) => {
-        console.log(res, "ok", res.status);
+        this.setState({message : "OKDONE"})
       })
       .catch((error) => {
         if (error.response) {
@@ -56,20 +57,33 @@ class Signup extends React.Component {
           console.log("Show error notification!");
         }
       });
+    // THIS should not be here, un comment and recheck what is happening
+    // better to simply show a non alert message based on message param
+    // better still remove this completely, because user is automatically redirected to home page
+    // infact alert before redirecting
 
-    console.log(this.state);
-    alert(
-      "Thank You for Signing Up " +
-        this.state.username +
-        ". Please login to continue"
-    );
-    this.props.history.push("/home");
+    // console.log(this.state);
+    // alert(
+    //   "Thank You for Signing Up " +
+    //     this.state.username +
+    //     ". Please login to continue"
+    // );
+    // this.props.history.push("/home");
   }
 
   render() {
     // if logged in then link to the home page
     if (this.props.token !== "null") {
       return <Redirect to={"/"} />;
+    }
+    if (this.state.message === "OKDONE") {
+      alert(
+        "Thank You for Signing Up " +
+          this.state.username +
+          ". Please login to continue"
+      );
+      this.props.history.push("/login") // ? not sure what is this , remove if not correct
+      return <Redirect to={"/login"} />
     }
     return (
       <div>
@@ -125,7 +139,7 @@ class Signup extends React.Component {
                 />
               </div>
               {/* <Link className="switchtext" to={"../login"}> */}
-              <button className="login-button">Sign-Up</button>
+              <button className="login-button">Sign Up</button>
               {/* </Link> */}
             </form>
             <div className="switch">

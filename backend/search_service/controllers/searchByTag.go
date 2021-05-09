@@ -50,7 +50,7 @@ func SearchByTagname(w http.ResponseWriter, r *http.Request) {
 	var summs []dtos.CcSummary
 	for _, val := range tags {
 		var cc schema.Cc
-		err = database.Model(&schema.Cc{}).Where("ID = ?", val.Ccid).Find(&cc).Error
+		err = database.Model(&schema.Cc{}).Where("ID = ?", val.Ccid).Where("draft = ?", false).Find(&cc).Error
 		if err == nil {
 			var summ *dtos.CcSummary = new(dtos.CcSummary)
 			summ.FromSchema(&cc)

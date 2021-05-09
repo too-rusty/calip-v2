@@ -62,7 +62,7 @@ class Login extends React.Component {
   render() {
     console.log("tokkk in login render ", this.props.token);
     // if (this.props.loggedIn) {
-    if (this.props.username !== "nullUser") {
+    if (this.props.token !== "null") {
       //should not do this but use some log in state
       console.log("OK NOT NULL", this.props.username);
       return <Redirect to={"/"} />;

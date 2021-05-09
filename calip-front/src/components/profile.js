@@ -33,13 +33,15 @@ class Profile extends React.Component {
       },
     };
     console.log("config", config);
-    let url = `http://${process.env.REACT_APP_SERVER_URL}/profile/` + this.state.uname;
+    let url =
+      `http://${process.env.REACT_APP_SERVER_URL}/profile/` + this.state.uname;
     axios
       .get(url, config)
       .then((res) => {
         console.log("called fetch API and got DATA -> ", res.data);
         if (res.data.username != undefined) {
           this.setState({ ...res.data });
+          console.log("state is set", this.state);
         }
       })
       .catch((error) => {
@@ -137,7 +139,7 @@ class Profile extends React.Component {
 
     let Hi = this.state.editable ? "Hi" : ""
     view = (
-      <div>
+      <div className="prof">
         <div className="hero-profile">
           <h4 style={{ color: "#05299e" }}>{Hi} {this.state.username}</h4>
           <img className="dp" src={diplayPic} alt="display" />
@@ -154,9 +156,7 @@ class Profile extends React.Component {
             {this.state.bookmarks !== null ? (
               <div class="profile-scrollbar" id="style-1">
                 <div class="profile-force-overflow">
-                  <div className="section-bookmarks">
-                    {bookmarks}
-                  </div>
+                  <div className="section-bookmarks">{bookmarks}</div>
                 </div>
               </div>
             ) : (

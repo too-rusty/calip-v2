@@ -4,6 +4,7 @@ import axios from "axios";
 import EditCard from "./subComponents/editcard";
 import MyCard from "./subComponents/mycard";
 import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 import "./create.css";
 
@@ -114,68 +115,112 @@ class Create extends React.Component {
 
   saveChain() {
     //saves as draft
-
-    let data = JSON.stringify(this.formData(true));
-    let token = this.props.token;
-    console.log("data before sending", data);
-    console.log("token before sending", token);
-    const config = {
-      headers: {
-        token: token,
-        // 'sameSite': 'None; Secure'
-      },
-    };
-    // MAY RETURN INVALID TOKEN , so handle that too
-    axios
-      .post(`http://${process.env.REACT_APP_SERVER_URL}/cc/create`, data, config)
-      .then((res) => {
-        console.log("called CREATE API", res.data);
-        if (res.data.ccid != undefined) {
-          this.setState({ ccid: res.data.ccid });
-        }
-      })
-      .catch((error) => {
-        if (error.response) {
-          console.log(error.response.data);
-        } else {
-          console.log("Show error notification!");
-        }
-      });
+    let cards = this.state.cards;
+    let title = this.state.title;
+    let about = this.state.about;
+    let tags_str = this.state.tag_str;
+    if (title == null) {
+      alert("Title is compulsory before Saving as a Draft");
+      // } else if (about == null) {
+      //   alert("About is Compulsory before publishing");
+      // } else if (tags_str == null) {
+      //   alert("Add a tag to amke your cards easily accessible");
+      // }
+    } else if (cards[0] == undefined) {
+      alert("Please add atleast 1 card before Saving as a Draft");
+    } else {
+      let data = JSON.stringify(this.formData(true));
+      let token = this.props.token;
+      // console.log("data before sending", data);
+      // console.log("token before sending", token);
+      const config = {
+        headers: {
+          token: token,
+          // 'sameSite': 'None; Secure'
+        },
+      };
+      // MAY RETURN INVALID TOKEN , so handle that too
+      axios
+        .post(
+          `http://${process.env.REACT_APP_SERVER_URL}/cc/create`,
+          data,
+          config
+        )
+        .then((res) => {
+          console.log("called CREATE API", res.data);
+          if (res.data.ccid != undefined) {
+            this.setState({ ccid: res.data.ccid });
+            alert("Your card has been successfully Saved to Drafts");
+          }
+        })
+        .catch((error) => {
+          if (error.response) {
+            console.log(error.response.data);
+          } else {
+            console.log("Show error notification!");
+          }
+        });
+    }
   }
   publishChain() {
     // e.preventDefault()
     //publishes the chain
     // after publishing redirect to the main page maybe
+    let cards = this.state.cards;
+    let title = this.state.title;
+    let about = this.state.about;
+    let tags_str = this.state.tag_str;
 
-    let data = JSON.stringify(this.formData(false));
-    let token = this.props.token;
-    console.log("data before sending", data);
-    console.log("token before sending", token);
-    const config = {
-      headers: {
-        token: token,
-        // 'sameSite': 'None; Secure'
-      },
-    };
+    console.log(cards);
 
-    axios
-      .post(`http://${process.env.REACT_APP_SERVER_URL}/cc/create`, data, config)
-      .then((res) => {
-        console.log("called CREATE API", res.data);
-        if (res.data.ccid != undefined) {
-          this.setState({ ccid: res.data.ccid });
-        }
-      })
-      .catch((error) => {
-        if (error.response) {
-          // token is expired
-          this.props.setToken("null", "nullUser");
-          console.log(error.response.data);
-        } else {
-          console.log("Show error notification!");
-        }
-      });
+    if (title == null) {
+      alert("Title is compulsory before Publishing a Card");
+    } else if (about == null) {
+      alert("About is Compulsory before publishing");
+    } else if (tags_str == null) {
+      alert("Add a tag to amke your cards easily accessible");
+    } else if (cards[0] == undefined) {
+      alert("Please add atleast 1 card before publishing");
+    } else {
+      let data = JSON.stringify(this.formData(false));
+      let token = this.props.token;
+      console.log(data.content);
+      console.log("data before sending", data);
+      console.log("token before sending", token);
+      const config = {
+        headers: {
+          token: token,
+          // 'sameSite': 'None; Secure'
+        },
+      };
+
+      axios
+
+        .post(
+          `http://${process.env.REACT_APP_SERVER_URL}/cc/create`,
+          data,
+          config
+        )
+        .then((res) => {
+          console.log("called CREATE API", res.data);
+          if (res.data.ccid != undefined) {
+            this.setState({ ccid: res.data.ccid });
+            alert("Your card has been successfully published");
+            this.props.history.push("/cc");
+          }
+        })
+        .catch((error) => {
+          if (error.response) {
+            // token is expired
+            this.props.setToken("null", "nullUser");
+            console.log(error.response.data);
+          } else {
+            console.log("Show error notification!");
+          }
+        });
+    }
   }
+
   changeHandler(event) {
     let name = event.target.name;
     let value = event.target.value;
@@ -188,6 +233,9 @@ class Create extends React.Component {
   render() {
     // if logout then redirect
     if (this.props.token === "null") {
+      alert(
+        "Please login to create."
+      );
       return <Redirect to={"/login"} />;
     }
 
@@ -212,7 +260,11 @@ class Create extends React.Component {
 
     let markdown_url = `https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet`;
     let markdown_link = (
-      <a href={markdown_url} target="_blank">
+      <a
+        style={{ color: "black !important" }}
+        href={markdown_url}
+        target="_blank"
+      >
         Markdown CheatSheet
       </a>
     );
@@ -302,4 +354,4 @@ class Create extends React.Component {
   }
 }
 
-export default Create;
+export default withRouter(Create);

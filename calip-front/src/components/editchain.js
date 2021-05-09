@@ -134,79 +134,122 @@ class EditView extends React.Component {
   }
 
   saveChain() {
+    let cards = this.state.cards;
+    let title = this.state.title;
+    let about = this.state.about;
+    let tags_str = this.state.tag_str;
+    if (title == "") {
+      alert("Title is compulsory before Saving as a Draft");
+      // } else if (about == null) {
+      //   alert("About is Compulsory before publishing");
+      // } else if (tags_str == null) {
+      //   alert("Add a tag to amke your cards easily accessible");
+      // }
+    } else if (cards[0] == undefined) {
+      alert("Please add atleast 1 card before Saving as a Draft");
+    } else {
+      let data = JSON.stringify(this.formData(true));
+      const cookies = new Cookies();
+      let token = cookies.get("calip_token");
+      console.log("data before sending", data);
+      console.log("token before sending", token);
+      const config = {
+        headers: {
+          token: token,
+          // 'sameSite': 'None; Secure'
+        },
+      };
+      // MAY RETURN INVALID TOKEN , so handle that too
+      axios
+        .post(
+          `http://${process.env.REACT_APP_SERVER_URL}/cc/create`,
+          data,
+          config
+        )
+        .then((res) => {
+          console.log("called CREATE API", res.data);
+          if (res.data.ccid != undefined) {
+            this.setState({ ccid: res.data.ccid });
+            alert("Your draft has ben successfully saved");
+          }
+        })
+        .catch((error) => {
+          if (error.response) {
+            this.setState({ ccid: "NOTFOUND" });
+            cookies.set("calip_token", "null", { path: "/" });
+            cookies.set("calip_uname", "nullUser", { path: "/" });
+            console.log(error.response.data);
+          } else {
+            console.log("Show error notification!");
+          }
+        });
+      
+    }
     //saves as draft
-
-    let data = JSON.stringify(this.formData(true));
-    const cookies = new Cookies();
-    let token = cookies.get("calip_token");
-    console.log("data before sending", data);
-    console.log("token before sending", token);
-    const config = {
-      headers: {
-        token: token,
-        // 'sameSite': 'None; Secure'
-      },
-    };
-    // MAY RETURN INVALID TOKEN , so handle that too
-    axios
-      .post(`http://${process.env.REACT_APP_SERVER_URL}/cc/create`, data, config)
-      .then((res) => {
-        console.log("called CREATE API", res.data);
-        if (res.data.ccid != undefined) {
-          this.setState({ ccid: res.data.ccid });
-        }
-      })
-      .catch((error) => {
-        if (error.response) {
-          this.setState({ ccid: "NOTFOUND" });
-          cookies.set("calip_token", "null", { path: "/" });
-          cookies.set("calip_uname", "nullUser", { path: "/" });
-          console.log(error.response.data);
-        } else {
-          console.log("Show error notification!");
-        }
-      });
   }
   publishChain() {
+    let cards = this.state.cards;
+    let title = this.state.title;
+    let about = this.state.about;
+    let tags_str = this.state.tag_str;
+
+    console.log(cards);
+
+    if (title == "") {
+      alert("Title is compulsory before Publishing a Card");
+    } else if (about == "") {
+      alert("About is Compulsory before publishing");
+    } else if (tags_str == "") {
+      alert("Add a tag to amke your cards easily accessible");
+    } else if (cards[0] == undefined) {
+      alert("Please add atleast 1 card before publishing");
+    } else {
+      let data = JSON.stringify(this.formData(false));
+      const cookies = new Cookies();
+      let token = cookies.get("calip_token");
+      console.log("data before sending", data);
+      console.log("token before sending", token);
+      const config = {
+        headers: {
+          token: token,
+          // 'sameSite': 'None; Secure'
+        },
+      };
+
+      axios
+        .post(
+          `http://${process.env.REACT_APP_SERVER_URL}/cc/create`,
+          data,
+          config
+        )
+        .then((res) => {
+          console.log("called CREATE API", res.data);
+          if (res.data.ccid != undefined) {
+            this.setState({ ccid: res.data.ccid });
+            alert("Your card has been successfully Edited");
+            this.props.history.push("/cc");
+          }
+          // console.log("USERNAMEEEE",res.data) // only token is being returned
+          // // localStorage.setItem('token',res.data.token)
+          // ls.set('token',res.data.token)
+          // this.props.setUser(res.data.token,true)
+        })
+        .catch((error) => {
+          if (error.response) {
+            // token is expired
+            this.setState({ ccid: "NOTFOUND" });
+            cookies.set("calip_token", "null", { path: "/" });
+            cookies.set("calip_uname", "nullUser", { path: "/" });
+            console.log(error.response.data);
+          } else {
+            console.log("Show error notification!");
+          }
+        });
+      
+    }
     // e.preventDefault()
     //publishes the chain
     // after publishing redirect to the main page maybe
-
-    let data = JSON.stringify(this.formData(false));
-    const cookies = new Cookies();
-    let token = cookies.get("calip_token");
-    console.log("data before sending", data);
-    console.log("token before sending", token);
-    const config = {
-      headers: {
-        token: token,
-        // 'sameSite': 'None; Secure'
-      },
-    };
-
-    axios
-      .post(`http://${process.env.REACT_APP_SERVER_URL}/cc/create`, data, config)
-      .then((res) => {
-        console.log("called CREATE API", res.data);
-        if (res.data.ccid != undefined) {
-          this.setState({ ccid: res.data.ccid });
-        }
-        // console.log("USERNAMEEEE",res.data) // only token is being returned
-        // // localStorage.setItem('token',res.data.token)
-        // ls.set('token',res.data.token)
-        // this.props.setUser(res.data.token,true)
-      })
-      .catch((error) => {
-        if (error.response) {
-          // token is expired
-          this.setState({ ccid: "NOTFOUND" });
-          cookies.set("calip_token", "null", { path: "/" });
-          cookies.set("calip_uname", "nullUser", { path: "/" });
-          console.log(error.response.data);
-        } else {
-          console.log("Show error notification!");
-        }
-      });
   }
   changeHandler(event) {
     let name = event.target.name;
@@ -226,7 +269,9 @@ class EditView extends React.Component {
       },
     };
 
-    let url = `http://${process.env.REACT_APP_SERVER_URL}/cc/` + this.state.ccid_link.toString();
+    let url =
+      `http://${process.env.REACT_APP_SERVER_URL}/cc/` +
+      this.state.ccid_link.toString();
     axios
       .get(url, config)
       .then((res) => {
@@ -351,7 +396,7 @@ class EditView extends React.Component {
             <div>
               <label>Title:</label>
               <input
-               style={{ color: "black" }}
+                style={{ color: "black" }}
                 name="title"
                 type="text"
                 placeholder="Title"
@@ -362,7 +407,7 @@ class EditView extends React.Component {
             <div>
               <label>About:</label>
               <input
-               style={{ color: "black" }}
+                style={{ color: "black" }}
                 name="about"
                 type="text"
                 placeholder="About"
@@ -402,7 +447,9 @@ class EditView extends React.Component {
           </div>
           <div className="cards-create">
             <div>
-              <div  style={{ color: "#05299e" }}>The first card will be the about card</div>
+              <div style={{ color: "#05299e" }}>
+                The first card will be the about card
+              </div>
               {cidx !== null ? (
                 <div>
                   {/* <div><PreviewCard card={this.state.cards[cidx]}/></div> */}
@@ -415,7 +462,7 @@ class EditView extends React.Component {
                   </div>
                 </div>
               ) : (
-                <div  style={{ color: "#05299e" }}> NO PREVIEW </div>
+                <div style={{ color: "#05299e" }}> NO PREVIEW </div>
               )}{" "}
             </div>
             <div>

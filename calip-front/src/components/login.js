@@ -51,6 +51,7 @@ class Login extends React.Component {
         if (error.response) {
           console.log(error.response.data);
           this.setState({ message: error.response.data.error });
+          alert(this.state.message + ". Please Try Again");
         } else {
           console.log("Show error notification!");
         }
@@ -99,7 +100,7 @@ class Login extends React.Component {
               </div>
               <button className="login-button">Login</button>
             </form>
-            {/* <div>Message from backend : {this.state.message} </div> */}
+
             <div className="switch">
               Dont have an account ?{" "}
               <Link className="switchtext" to={"../signup"}>

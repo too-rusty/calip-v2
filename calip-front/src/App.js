@@ -71,7 +71,7 @@ class App extends React.Component {
     console.log(config);
     // The second argument is the HEADER.... HELLLLL
     axios
-      .get("http://localhost:8000/prof/test", config)
+      .get(`http://${process.env.REACT_APP_SERVER_URL}/prof/test`, config)
       .then((res) => {
         console.log("res", res);
 

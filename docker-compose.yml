@@ -1,34 +1,8 @@
 version: "3.8"
 
 services:
-    client:
-        build: ./calip-front
-        working_dir: /app
-        ports:
-          - 80:80
-        depends_on:
-          - server
-    db_service:
-        image: mysql
-        container_name: "calip_db"
-        environment:
-            MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
-            MYSQL_DATABASE: "calip_db"
-        ports:
-            - "3305:3306"
-        # volumes:
-        #     - "database_mysql:/var/lib/mysql"
-
     server:
         build: ./backend
-        container_name: "calip_backend"
+        container_name: "calip-backend-container"
         ports:
             - "8000:8000"
-        restart: on-failure
-        depends_on:
-            - db_service
-
-    
-
-# volumes:
-#     database_mysql: { driver : local }

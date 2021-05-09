@@ -67,15 +67,16 @@ h3 {
 .bookmark {
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   text-align: center;
   /* border: 2px solid #29395a; */
   border-radius: 30px;
   padding: 10px;
   font-size: 18px;
-  background-image: linear-gradient(#29395a, #8fa5f0);
-  color: #29395a !important;
+  /* background-image: linear-gradient(#29395a, #8fa5f0); */
+  /* color: #fff !important; */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  max-height: 150px;
 }
 .draft {
   border-bottom: #29395a 2px solid;
@@ -88,4 +89,7 @@ h3 {
   height: 42px;
   font-size: 18px;
   float: right;
+}
+.section-heading {
+  font-weight: bold;
 }

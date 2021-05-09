@@ -183,7 +183,6 @@ class EditView extends React.Component {
             console.log("Show error notification!");
           }
         });
-      
     }
     //saves as draft
   }
@@ -245,7 +244,6 @@ class EditView extends React.Component {
             console.log("Show error notification!");
           }
         });
-      
     }
     // e.preventDefault()
     //publishes the chain

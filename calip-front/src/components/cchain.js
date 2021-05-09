@@ -190,7 +190,7 @@ class Cchain extends React.Component {
           </div>
 
           <div>
-            <CChainView chain={this.state.cardchain} startIdx={0}/>
+            <CChainView chain={this.state.cardchain} startIdx={0} />
           </div>
         </div>
       );

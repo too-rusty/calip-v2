@@ -28,9 +28,15 @@ class Home extends React.Component {
         <div className="home-hero">
           <div className="home-title">Calip</div>
           <div className="home-about">
-            Calip is a data aggregation platform made for students , experts
-            upload necessary information which is easily accesible to the
-            students
+            <div>
+            Aggregate and bundle your
+            ideas from around the web.
+            </div>
+            <div>
+            </div>
+            <div>
+            Explore great ideas quickly yet effectively.
+            </div>
           </div>
           <div className="home-buttons">
             <Link to="/cc">
@@ -47,20 +53,20 @@ class Home extends React.Component {
           <div className="card">
             <img className="display-image" src={content} alt="content" />
             <p>More than</p>
-            <h3>500+</h3>
-            <p>topics in the form of cards</p>
+            <h3>100+</h3>
+            <p>lessons as value packed cards</p>
           </div>
           <div className="card">
             <img className="display-image" src={creators} alt="creators" />
-            <p>atleast</p>
-            <h3>200+</h3>
+            <p>More than</p>
+            <h3>40+</h3>
             <p>creators across the globe</p>
           </div>
           <div className="card">
             <img className="display-image" src={students} alt="students" />
             <p>More than</p>
-            <h3>1000+</h3>
-            <p>happy students</p>
+            <h3>100+</h3>
+            <p>happy learners</p>
           </div>
         </div>
       </div>

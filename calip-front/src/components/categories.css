@@ -22,6 +22,7 @@ h5 {
   width: 80vw !important;
   margin: 20px;
   padding: 20px;
+  min-height: 100vh;
 }
 .categoryhead {
   display: flex;

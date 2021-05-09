@@ -72,7 +72,7 @@ class Profile extends React.Component {
         : this.state.cards.map((val, key) => {
             return (
               <div className="card-sc">
-                <div className="content">
+                <div className="content" style={{ padding: 10 }}>
                   <Card
                     key={key}
                     ccid={val.ccid}
@@ -241,7 +241,7 @@ class Card extends React.Component {
       </div>
     );
 
-    return <div className="prof">{view}</div>;
+    return <div>{view}</div>;
   }
 }
 

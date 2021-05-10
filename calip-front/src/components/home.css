@@ -10,7 +10,7 @@
 .home-hero {
   /* background-image: url(../images/Imgbg.jpg); */
   background-color: #29395a;
-  width: 100vw;
+  width: 1325px !important;
   min-height: 400px !important;
   background-size: cover;
   background-position: center;
@@ -84,7 +84,7 @@ button:hover {
   flex-direction: column;
   color: #29395a;
   margin: 0px 10px;
-  transform: translateY(-100px);
+  transform: translateY(-80px);
   padding: 20px;
   width: 250px;
   height: 300px;
@@ -113,19 +113,22 @@ button:hover {
 
 @media (max-width: 760px) {
   .home {
-    height: 1400px;
+    height: 1300px;
+  }
+  .home-hero {
+    height: 400px !important;
   }
   .home-about {
-    margin: 20px;
-    padding: 20px;
-    height: 200px !important;
+    margin: 10px;
+    padding: 10px;
+    height: 160px !important;
   }
   .home-buttons {
     flex-direction: column;
   }
   .cards {
     flex-direction: column;
-    height: 1000px;
+    height: 900px;
     justify-content: center;
     align-items: center;
   }
@@ -133,6 +136,6 @@ button:hover {
     width: 200px;
     height: 250px;
     transform: none;
-    margin: 30px 10px;
+    margin: 20px 10px;
   }
 }

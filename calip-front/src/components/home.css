@@ -10,7 +10,7 @@
 .home-hero {
   /* background-image: url(../images/Imgbg.jpg); */
   background-color: #29395a;
-  width: 1325px !important;
+  width: 1325px;
   min-height: 400px !important;
   background-size: cover;
   background-position: center;
@@ -94,7 +94,7 @@ button:hover {
   transition: 0.5s all ease;
 }
 .card:hover {
-  transform: translateY(-130px);
+  transform: translateY(-100px);
 }
 .card p {
   color: #29395a;
@@ -117,6 +117,7 @@ button:hover {
   }
   .home-hero {
     height: 400px !important;
+    width: 100%;
   }
   .home-about {
     margin: 10px;

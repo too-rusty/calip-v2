@@ -51,3 +51,8 @@ h5 {
 .categoryTag:hover {
   background-color: #7c8897;
 }
+@media (max-width: 720px) {
+  .categoryTag {
+    font-size: 12px;
+  }
+}

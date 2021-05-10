@@ -55,5 +55,6 @@
   .navbar {
     padding: 2px 50px;
     height: 100px;
+    width: 100%;
   }
 }

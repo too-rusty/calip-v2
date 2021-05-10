@@ -18,6 +18,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   padding: 50px;
   flex-direction: column;
 }
@@ -117,4 +118,41 @@
 }
 .sc-user {
   font-size: 16px;
+}
+@media (max-width: 720px) {
+  .allcards {
+    padding: 50px 100px;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .card-sc {
+    height: 150px;
+    width: 250px;
+    padding: 10px;
+    margin: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: 0.4s all ease-in-out;
+    cursor: pointer;
+  }
+  .categoryTag {
+    font-size: 12px;
+  }
+  .buscar-caja {
+    width: 250px !important;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+  }
+  .buscar-caja:hover > .buscar-txt {
+    width: 150px;
+    padding: 0 6px;
+
+    border-radius: 30px;
+    height: 50px;
+    background-color: #29395e !important;
+  }
+  .sc-text {
+    font-size: 18px;
+  }
 }

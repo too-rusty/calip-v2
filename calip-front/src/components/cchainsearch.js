@@ -185,7 +185,7 @@ class CchainSearch extends React.Component {
         <div className="hero">
           <div className="searchhero">
             <div className="searchbar">
-              <div style={{ color: "white" }}>
+              <div className="sc-text" style={{ color: "white" }}>
                 Looking for Something? Search now to get the best results
               </div>
               <div>{search_bar}</div>
@@ -237,7 +237,7 @@ class Card extends React.Component {
     let about = this.props.about;
     let tags = this.props.tags.map((val, key) => {
       return (
-        <div className="categoryTag"> 
+        <div className="categoryTag">
           <Tag val={val} key={key} />
         </div>
       );

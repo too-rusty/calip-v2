@@ -78,9 +78,18 @@ class CChainView extends React.Component {
           <div className="chain-view">
             {/* <Scrollbars style={{width:300,height:600,color:"yellow !important" }}
                  > */}
-            <div class="scrollbar" id="style-1">
-              <div class="force-overflow">
-                <div>{cards}</div>
+            <div class="scrollbar-chainView" id="style-chainView">
+              <div class="force-overflow-chainView">
+                <div>
+                  {cards}
+                  {cards}
+                  {cards}
+                  {cards}
+                  {cards}
+                  {cards}
+                  {cards}
+                  {cards}
+                </div>
               </div>
             </div>
 
@@ -145,7 +154,13 @@ class ShortViewCard extends React.Component {
     return (
       <div className="cardcolumn">
         <div className="short-card" onClick={() => this.props.setCard(idx)}>
-          #{idx + 1}
+          <box className="inner">#{idx + 1}</box>
+          <div
+            style={{ color: "white", padding: 2, fontSize: 12 }}
+            dangerouslySetInnerHTML={{
+              __html: marked(content.substr(0, 50) + "..."),
+            }}
+          ></div>
         </div>
       </div>
     );

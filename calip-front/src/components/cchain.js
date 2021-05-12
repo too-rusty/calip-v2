@@ -125,7 +125,7 @@ class Cchain extends React.Component {
       let cc = this.state.cardchain;
       let tags = cc.tags;
       view = (
-        <div>
+        <div className="view-master">
           <div className="view-hero">
             <div className="section-1">
               <div className="viewtitle">{cc.title}</div>
@@ -179,19 +179,38 @@ class Cchain extends React.Component {
               </div>
             </div>
           </div>
-          <div className="viewinfo">
-            <div className="info">
+
+          <div style={{ minHeight: 500 }}>
+            <CChainView chain={this.state.cardchain} startIdx={0} />
+          </div>
+
+          {/* <div className="info">
               <div>DESCRIPTION</div>
               <div className="about-view"> {cc.about}</div>
               {tags.map((tag) => (
                 <div className="categoryTag">{tag} </div>
               ))}
+            </div> */}
+          <section className="info-section">
+            <div className="viewinfo">
+              <div>
+                <img
+                  className="profile-photo"
+                  src={profileImage}
+                  alt="display image"
+                />
+              </div>
+              <div className="info">
+                <div className="title">{cc.title}</div>
+                <div className="about-view"> {cc.about}</div>
+              </div>
+              <div className="tags">
+                {tags.map((tag) => (
+                  <div className="category-Tag">{tag}</div>
+                ))}
+              </div>
             </div>
-          </div>
-
-          <div>
-            <CChainView chain={this.state.cardchain} startIdx={0} />
-          </div>
+          </section>
         </div>
       );
     }

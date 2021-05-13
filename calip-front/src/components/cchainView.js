@@ -2,6 +2,8 @@ import React from "react";
 import ReactPlayer from "react-player";
 import "./cchainView.css";
 import { Scrollbars } from "react-custom-scrollbars";
+import { Button, Modal } from "react-bootstrap";
+import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
 
 let marked = require("marked");
 
@@ -22,10 +24,29 @@ class CChainView extends React.Component {
       cc: this.props.chain.content, // the actual card chain content
       cidx: startIdx == 0 ? startIdx : null,
     };
-    console.log("cchainview content", this.cc);
+    console.log("cchainview content", this.state.cc);
+    let length = this.state.cc.length;
+    console.log(length);
   }
   setCard(idx) {
     this.setState({ cidx: idx });
+  }
+  nextCard(idx) {
+    let length = this.state.cc.length;
+    if (idx + 1 === length) {
+      alert("This is the last card, No more cards to show");
+      this.setState({ cidx: 0 });
+    } else {
+      this.setState({ cidx: idx + 1 });
+    }
+  }
+  prevCard(idx) {
+    if (idx - 1 < 0) {
+      alert("This is the first card, No previous card to show");
+      this.setState({ cidx: 0 });
+    } else {
+      this.setState({ cidx: idx - 1 });
+    }
   }
   renderView({}) {
     const customStyle = {
@@ -62,7 +83,12 @@ class CChainView extends React.Component {
               <div>
                 {/* <div><PreviewCard card={this.state.cards[cidx]}/></div> */}
                 <div>
-                  <DetailViewCard card={this.state.cc[cidx]} />
+                  <DetailViewCard
+                    card={this.state.cc[cidx]}
+                    nextCard={this.nextCard.bind(this)}
+                    prevCard={this.prevCard.bind(this)}
+                    idx={cidx}
+                  />
                 </div>
               </div>
             ) : (
@@ -80,16 +106,7 @@ class CChainView extends React.Component {
                  > */}
             <div class="scrollbar-chainView" id="style-chainView">
               <div class="force-overflow-chainView">
-                <div>
-                  {cards}
-                  {cards}
-                  {cards}
-                  {cards}
-                  {cards}
-                  {cards}
-                  {cards}
-                  {cards}
-                </div>
+                <div>{cards}</div>
               </div>
             </div>
 
@@ -105,18 +122,38 @@ class DetailViewCard extends React.Component {
   constructor(props) {
     super(props);
     console.log("logging card", this.props);
+    this.state = {
+      showHide: false,
+    };
   }
+
+  handleModalShowHide() {
+    this.setState({ showHide: !this.state.showHide });
+  }
+
+  // onClickButton = (e) => {
+  //   e.preventDefault();
+  //   this.setState({ openModal: true });
+  // };
+
+  // onCloseModal = () => {
+  //   this.setState({ openModal: false });
+  // };
   render() {
     let markdown = this.props.card.content;
-
+    let title = this.props.card.title;
+    let idx = this.props.idx;
+    let length = this.props.card.length;
+    console.log(length);
     let isVidCard = this.props.card.link === "" ? false : true;
     let link = this.props.card.link;
+
     return (
       <div className="card-details">
         <div className="text-card">
           {/* fbf5f3  */}
           <Scrollbars
-            style={{ width: 600, height: 500, backgroundColor: "#fff" }}
+            style={{ width: 600, height: 400, backgroundColor: "#fff" }}
           >
             <div
               style={{
@@ -128,12 +165,67 @@ class DetailViewCard extends React.Component {
             ></div>
           </Scrollbars>
         </div>
+
         {isVidCard ? (
-          <div className="vdo-card">
-            <ReactPlayer url={link} controls={true} />
+          <div>
+            <div className="buttons-new">
+              <button
+                class="swipw-btn"
+                onClick={() => this.props.prevCard(idx)}
+              >
+                <FaAngleLeft />
+              </button>
+              <button onClick={() => this.handleModalShowHide()}>
+                Show Video
+              </button>
+              <button
+                class="swipw-btn"
+                onClick={() => this.props.nextCard(idx)}
+              >
+                <FaAngleRight />
+              </button>
+            </div>
+            <Modal show={this.state.showHide}>
+              {/* <Modal.Header
+                closeButton
+                onClick={() => this.handleModalShowHide()}
+              >
+                <Modal.Title>{title}</Modal.Title>
+              </Modal.Header> */}
+              <Modal.Body>
+                <div className="vdo-card">
+                  <ReactPlayer url={link} controls={true} />
+                </div>
+              </Modal.Body>
+              <Modal.Footer>
+                <button
+                  variant="secondary"
+                  onClick={() => this.handleModalShowHide()}
+                >
+                  Close
+                </button>
+              </Modal.Footer>
+            </Modal>
+            {}
           </div>
         ) : (
-          <div style={{ height: 20 }}></div>
+          <div>
+            <div className="buttons-new">
+              <button
+                class="swipw-btn"
+                onClick={() => this.props.prevCard(idx)}
+              >
+                <FaAngleLeft />
+              </button>
+
+              <button
+                class="swipw-btn"
+                onClick={() => this.props.nextCard(idx)}
+              >
+                <FaAngleRight />
+              </button>
+            </div>
+          </div>
         )}
       </div>
     );
@@ -150,13 +242,14 @@ class ShortViewCard extends React.Component {
     let content = this.props.content;
     if (!content) content = "EMPTY";
     let idx = this.props.idx;
+
     let isVidCard = this.props.link === undefined ? false : true;
     return (
       <div className="cardcolumn">
         <div className="short-card" onClick={() => this.props.setCard(idx)}>
           <box className="inner">#{idx + 1}</box>
           <div
-            style={{ color: "white", padding: 2, fontSize: 12 }}
+            class="innerhtml"
             dangerouslySetInnerHTML={{
               __html: marked(content.substr(0, 50) + "..."),
             }}

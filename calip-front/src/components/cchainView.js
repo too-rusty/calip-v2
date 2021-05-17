@@ -34,7 +34,7 @@ class CChainView extends React.Component {
   nextCard(idx) {
     let length = this.state.cc.length;
     if (idx + 1 === length) {
-      alert("This is the last card, No more cards to show");
+      // alert("This is the last card, No more cards to show");
       this.setState({ cidx: 0 });
     } else {
       this.setState({ cidx: idx + 1 });
@@ -42,7 +42,7 @@ class CChainView extends React.Component {
   }
   prevCard(idx) {
     if (idx - 1 < 0) {
-      alert("This is the first card, No previous card to show");
+      // alert("This is the first card, No previous card to show");
       this.setState({ cidx: 0 });
     } else {
       this.setState({ cidx: idx - 1 });

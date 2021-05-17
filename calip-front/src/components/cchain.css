@@ -1,3 +1,8 @@
+.view-master {
+  display: flex;
+  flex-direction: column;
+}
+
 .view-hero {
   background-color: #25395e;
   width: 100vw;
@@ -5,6 +10,7 @@
   justify-content: center;
   align-items: center;
 }
+
 .section-1 {
   width: 80vw;
   display: flex;
@@ -12,7 +18,7 @@
   align-items: center;
   flex-direction: column;
   color: #fff !important;
-  padding: 50px;
+  padding: 10px;
 }
 .profile-photo {
   width: 50px;
@@ -46,11 +52,36 @@ Link p {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 50px;
 }
 .info {
-  width: 80vw;
+  width: 60vw;
   padding: 30px;
 }
 .about-view {
   font-size: 16px;
+}
+.info-section {
+  background-color: #eff2f5;
+}
+.category-Tag {
+  margin: 5px 5px;
+  display: inline-block;
+  padding: 6px 10px 5px;
+  border-radius: 5px;
+  border: 2px solid #25395e;
+  font-family: proxima-nova, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: center;
+  background-color: #eff2f5;
+  color: #29395a !important;
+  transition: ease-in-out all 0.2s;
+  cursor: pointer;
+}
+.category-Tag:hover {
+  background-color: #0991ff;
+  color: #fff !important;
+  font-size: 14px;
+  border: 2px solid #fff;
 }

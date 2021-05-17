@@ -10,7 +10,7 @@
 .home-hero {
   /* background-image: url(../images/Imgbg.jpg); */
   background-color: #29395a;
-  width: 100vw;
+  width: 100%;
   min-height: 400px !important;
   background-size: cover;
   background-position: center;

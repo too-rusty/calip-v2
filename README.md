@@ -1,6 +1,6 @@
 # calip-v2
 
-
+A project to let the users publish any content they want as byte sized cards.
 
 prerequisites
 -------------
